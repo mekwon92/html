@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        input {padding: .5em;}
+    </style>
+</head>
+<body>
+    <form>
+        <!-- novalidate boolean 여기서 제공하는 유효성을 사용하지 않겠다.(내가만들때) -->
+        <fieldset>
+            <legend>type 속성</legend>
+            <p>아이디 <input type="text" name="id" placeholder="ID를 입력하세요" maxlength="12" required></p>
+            <p>비밀번호 <input type="password" name="pw" required></p>
+            <p>검색 <input type="search" name="search" value="검색어"></p>
+            <p>이메일 <input type="email" name="email" ></p>
+            <p>url <input type="url" name="url"></p>
+            <p>전화번호 <input type="tel" name="tel"></p>
+            <p>숫자 <input type="number" name="number" min="1" max="10" step="2"></p>
+            <hr>
+            <p>범위 <input type="range" name="range" min="2" max="6" step="2" value="2"></p>
+            <p>시간 <input type="time" name="time"></p>
+            <p>날짜 <input type="date" name="date"></p>
+            <p>날짜시간 <input type="datetime-local" name="datetime-local"></p>
+            <p>월 <input type="month" name="month" min="2024-10" max="2025-09"></p>
+            <p>주 <input type="week" name="week"></p>
+            <button>전송</button>
+        </fieldset>
+    </form>    
+</body>
+</html>

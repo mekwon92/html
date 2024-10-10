@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table {
+            border: 1px solid #000;
+            /* border-spacing: 5px; */
+            border-collapse: collapse;
+            margin: auto;
+        }
+        td, th {
+            border: 1px solid #000;
+            width: 100px;
+            padding: 20px;
+            text-align: center;
+        }
+        tbody tr:hover {background-color: #ccc; text-decoration: underline;}
+    </style>
+</head>
+<body>
+    <table>
+        <caption align="bottom">테이블 제목</caption> 
+        <thead>
+
+        </thead>
+        <tbody> 
+            <tr>
+                <td colspan="2">1</td>
+                <td>2</td>
+                <td rowspan="2">2</td>
+                <td >2</td>
+            </tr>
+            <tr>
+                <td >5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td rowspan="3" colspan="2">9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>9</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
