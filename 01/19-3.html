@@ -6,18 +6,21 @@
     <title>표</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+        table {width: 100%; border-collapse: collapse;}
+        td, th {border:2px groove #d6caca}
+        .c1 {background: #ff0;}
+        .c2 {background: #0ff;}
 
-        td, th {
-            border:2px groove #d6caca
-        }
+
+        
     </style>
 </head>
 <body>
     <table>
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+        </colgroup>
         <thead>
             <tr>
                 <th>교과목</th>

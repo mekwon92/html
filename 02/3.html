@@ -6,19 +6,54 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style> 
-        /*  */
+        /* 전체선택자 : 들여쓰기 */
+        * {text-indent: 40px;}
+        /* type선택자 : 파란색*/
         p {color:blue;} 
-        /*  */
+        /* id선택자 */
         #ctxt {color:green}
-        /*  */
+        /* class선택자 */
         .txt {font-style: italic;}
         .txt2 {text-decoration: underline;}  
-    </style>
+        /* 자손선택자 : 얘 조상중에 있냐? 라고 접근 */
+        div h3 {color:red}
+        body h3 {background-color: skyblue;}
+        /* 자식선택자 : 부모냐? */
+        body > h3 {border: 5px solid black;}
+        div div > h2{color:magenta} /* > 써도 됨*/
+        /*인접형제 선택자*/
+        h3 + p {color:cyan}
+        p + p {background-color: yellow;}
+        
+        table {width: 100%}
+        td {padding: 16px; width:5%} /*50%가 아니라 부모를 따라 균일분할*/
+        td + td {width: 70%;}
+        td + td + td {width : 10%;}
+        td + td + td + td {width : 10%;}
+        td + td + td + td + td{width : 5%;}
+
+</style>
 </head>
 <body>
     <h3 class="txt">제목</h3>
     <p class="txt txt2">우리를 기쁘게 하는 것들</p>    
     <p id="ctxt" class="txt2">건강에 좋은 차</p>    
-    <p>머리가 좋아지는 음식</p>  
+    <p>머리가 좋아지는 음식</p>
+    <div>
+        <div>
+            <h2>제목 1</h2>
+        </div>
+        <h2>제목 2</h2>
+        <h3>제목 3</h3>
+    </div>
+    <table border="1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 </html>
