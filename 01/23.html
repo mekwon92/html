@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>caption 태그와 scope 속성</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table {width: 100%; border-collapse: collapse;}
+        th, td {border: 1px solid #000}
+    </style>
+</head>
+<body>
+    <table>
+        <caption>상품에 따른 상하반기 판매량</caption>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">데스크탑 PC</th>
+                <th scope="col">스마트폰</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">상반기 판매순</th>
+                <td>2만대</td>
+                <td>5만대</td>
+            </tr>
+            <tr>
+                <th scope="row">하반기 판매순</th>
+                <td>3만대</td>
+                <td>7만대</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

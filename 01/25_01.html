@@ -11,9 +11,34 @@
 </head>
 <body>
     <form>
-        <!-- novalidate boolean 여기서 제공하는 유효성을 사용하지 않겠다.(내가만들때) -->
+    <!-- 
+    <form novalidate> : 여기서 제공하는 유효성을 사용하지 않고 내가 만들겠다. 혹은 검사하지않겠다. (boolean 속성임)
+    -->
         <fieldset>
             <legend>type 속성</legend>
+            <!-- 
+            <input> : 사용자로부터 데이터값을 입력받기 위함
+            <label> : 사용자 경험 개선
+            
+            <input>의 속성
+            type : text, password, search, email, url, tel, number, range, time, date, datetime-local, month, week, color
+                   radio, checkbox,  submit, reset, button, image, file, hidden 등등 다양한 폼 컨트롤 생성
+            name : input 요소의 이름 지정. 폼이 서버로 전송되는 데이터에서 해당 입력 필드를 식별하는데 사용
+                   영문자, 숫자, 밑줄(_) 등이 권장
+            value : input 요소의 초기 값이나 버튼의 텍스트 설정
+                    다양한 특수문자나 한글 사용가능
+            id : html 내에서 고유하게 식별하는데 사용
+            title : 요소에 대한 추가정보 제공(툴팁)
+
+
+            placeholder : 사용자가 입력해야할 예시나 힌트 제공
+            required : 반드시 값을 입력받아야 함
+            autocomplete : 기본값 on (off 시 자동완성 안됨)
+            maxlength : 최대 문자수
+            max / min : 최대 최소값
+            step : 값의 단위
+            
+            -->
             <p><label>아이디 <input type="text" name="id" placeholder="ID를 입력하세요" maxlength="12" required autocomplete="off"></label></p>
             <p>비밀번호 <input type="password" name="pw" required></p>
             <p>검색 <input type="search" name="search" value="검색어"></p>

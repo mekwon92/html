@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <!-- 
+    font-awesome에서 다운받은 아이콘 폰트 쓰겠습니다. 
+        - font awesome : 이미지 다운
+        - font awesome cndnjs : head에 입력-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>성별</legend>
+                <!-- checked : 회원가입에 이용되는 boolean 속성-->
+                <label>남자<input type="radio" name="gender" value="male"></label>
+                <label>여자<input type="radio" name="gender" value="female" checked></label>
+                <button>선택</button>
+            </fieldset>
+            <fieldset>
+                <input type="image" src="../img/free-icon-student-257787.png">
+                <input type="submit" value="서버로 데이터 전송">
+                <input type="reset"  value="입력 데이터 초기화">
+                <input type="button" value="버튼" onclick="confirm('구글로 이동하시겠습니까?') ? location.href = 'https://www.google.com': ''">
+                <hr>  <!-- horizon rule : 줄바꿈 -->
+                <!-- <button>은 input에 비해 이벤트 처리시 유연하다 -->
+                <input type="button" value="버튼" >
+                <button>
+                    <img src="../img/free-icon-student-257787.png">친구신청
+                </button>
+                <button>
+                    <i class="fa-solid fa-magnifying-glass" style="color: blue;"></i> 검색</button> <!-- font awesome -->
+                    <!-- 아이콘을 사용하기위해 i 태그 사용. class : 요소를 선택하기 위해 사용되는 속성 -->
+                </button>
+                <hr>
+                <input type="file" multiple> <!-- 여러개의 파일선택 -->
+            </fieldset>
+            
+            <fieldset>
+                 <!-- 가로 100글자 세로 10줄 -->
+                <textarea cols="100" rows="10" readonly>
+이용약관
+1. 어쩌고
+2. 저쩌고
+                </textarea>
+            </fieldset>
+        </form>
+    </body>
+</html>

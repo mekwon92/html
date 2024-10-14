@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {font-family: 굴림;}
+        /* 
+        .bnt-cancel-01 {}
+        .bnt-cancel-02 {}
+        .bnt-cancel-03 {}
+        [class|='btn-cancel'] 
+        */
+
+         /*
+            우선순위
+            1. OS의 스타일(ex.고대비)
+            2. 사용자의 스타일
+            3. 브라우저 기본 스타일
+        */
+
+        /* 속성 선택자 */
+        [title] {color:red;}
+        /* write인 것 */
+        [title='write'] {text-decoration: line-through;}
+        /* write라는 단어가 포함된 것 */
+        [title*='write'] {background: green;}
+        /* write라는 단어가 포함된 것. 구분자 하이픈(-) */
+        [title|='write'] {text-indent: 100px;}
+        /* write라는 단어가 포함된 것. 구분자 공백. 거의사용안함 */
+        [title~='write'] {font-size :3em;}
+        
+        /* 가상 클래스 자주씀 */
+        a:link {color: green;}
+        a:visited {color: aqua; }
+        a:hover {color: brown;}
+        a:active {color: orange;}
+        a:focus {color: deeppink;}
+    </style>
+</head>
+<body>
+    <h3 title="header">제목</h3>
+    <p title="write addr">주소록 작성</p>    
+    <p title="write-tel">전화번호 작성</p>    
+    <p title="write">건강기록부 작성</p>    
+    <p class="write">금전출납부 작성</p>    
+
+    <p><a href="#">링크</a></p>
+</body>
+</html>

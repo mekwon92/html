@@ -4,72 +4,22 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
-    <!-- <meta name='viewport' content='width=device-width, initial-scale=1'> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <form>
+    <form action="#" method="post">
         <fieldset>
-            <legend>피자 주문</legend>
-            <p>피자 사이즈를 선택해주세요</p>
-            <p><label>레귤러 <input type="radio" name="size" value="레귤러"></label></p>
-            <p>라지 <input type="radio" name="size" value="라지"></p>
-            <p>엑스라지 <input type="radio" name="size" value="엑스라지"></p>
-
-            <hr>
-            <p>토핑을 선택해주세요</p>
-            <p><label>페퍼로니 <input type="checkbox" checked></label></p>
-            <p><label>파인애플 </label><input type="checkbox" disabled></label></p>
-            <!-- 재고소진 -->
-            <p><label>불고기 </label><input type="checkbox"></label></p>
-            <p><label>고구마무스 </label><input type="checkbox"></label></p>
-            <p><label>치즈 </label><input type="checkbox" name="topping" value="cheese"></label></p>
-            <!-- name과 value 사용 topping=cheese&topping=garlic+beef
-             name은 영어가능 value는 한글가능-->
-            <p><label>갈릭비프 </label><input type="checkbox" name="topping" value="garlic beef"></label></p>
-            
-            <button>주문</button>
-        </fieldset>
-        <fieldset>
-            <legend>성별</legend>
-            <label>남자<input type="radio" name="gender" value="male"></label>
-            <label>여자<input type="radio" name="gender" value="female" checked></label>
-            <!-- boolean 속성 : checked 회원가입 등등-->
-            <button>선택</button>
-        </fieldset>
-        <fieldset>
-            <input type="submit" value="서버로 데이터 전송">
-            <input type="reset"  value="입력 데이터 초기화">
-            <input type="button" value="버튼" onclick="confirm('구글로 이동하시겠습니까?') ? location.href = 'https://www.google.com': ''">
-            <!-- button은 내부에 이벤트 가능한데 input은 불가능?! -->
-             <button>
-                <img src="../img/free-icon-student-257787.png">친구신청
-            </button>
-            <button>
-                <i class="fa-solid fa-magnifying-glass" style="color: blue;"></i> 검색</button>
-                <!-- 
-                font awesome : 이미지 다운
-                font awesome cndnjs : head에 입력
-                -->
-            </button>
-            <input type="file" multiple>
-            <input type="image" src="../img/free-icon-student-257787.png">
-            <!-- 역할 >> submit 로그인을 이미지로 만들 때
-             &x=13&y=11 클릭한 인수의 좌표값? 잘 안씀 -->
-        </fieldset>
-        <fieldset>
-            <!-- 드롭다운 -->
-            <select multiple name="size2">
-                <option value="regular">레귤러</option>
-                <option value="large" selected>라지</option> <!-- 사전기본값 -->
+            <legend>회원가입</legend>
+            <p>가입목적 : <br><textarea cols="50" rows="10"></textarea></p>
+            <p>전화번호 :
+            <select>
+                <option>지역번호</option>
+                <option selected>02</option>
+                <option>053</option>
+                <option>062</option>
             </select>
-            <hr> <!-- 줄바꿈 -->
-            <textarea cols="100" rows="10" readonly>
-이용약관
-1. 어쩌고
-2. 저쩌고
-            </textarea>
-        </fieldset>
-    </form>    
+            <input type="text">
+            </p>
+        </fieldset>   
 </body>
 </html>

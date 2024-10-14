@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /*동생 선택자 : 먼저 언급되면 선택이 안됨*/
+        h3 ~ p {color:blue;}
+        /*그룹 선택자 : 컴마로 묶어서 속성 부여*/
+        table, td, th {border : 1px solid;}
+        td, th {padding: 16px}
+        /* td {border: 1px solid;}
+        th {border : 1px solid;} */
+        /*
+            클래스 이름 작명법
+            영소문자, 하이픈(-) 사용 권장. 
+            언더바(_)는 파일이나 폴더에 권장
+            id 말고 class 사용 권장
+            숫자나 특수문자는 순번때 숫자 사용 leading zero (비권장)
+        
+        */
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="2">제목</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+    </table>
+    <p>이전에 언급 p</p>
+    <h3>엑스포 안내</h3>    
+    <p>책자를 배부하고 있습니다</p>
+    <p>안내 데스크를 활용하시기 바랍니다</p>
+    <ul>
+        <li><p>주중에는 정오 이벤트가 있습니다</p></li>
+        <li><p>주말에는 자정 이벤트가 있습니다</p></li>
+    </ul>
+    <p>9월에는 가을 이벤트가 시작됩니다.</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div {width: 300px;}
+        p {
+            border: 1px solid; 
+            /* word-wrap: break-word; */
+            word-break: keep-all;
+        }
+        .text-hidden {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .white-space p:nth-child(2) {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .white-space p:nth-child(3) {white-space: pre;}
+        .white-space p:nth-child(4) {white-space: pre-wrap;}
+        .white-space p:nth-child(5) {white-space: pre-line; height: 70px; overflow-y: scroll;}
+
+
+        /* 
+            게시판 제목 세트(보통 클래스로 둠. 시험출제)
+            white-space : nowrap
+            overflow : hidden
+            text-overflow : ellipsis
+        */
+    </style>
+</head>
+<body>
+    <div>
+        <!-- p태그의 넓이는 조상의 100%로 따라감 -->
+        <!-- 한영 차이가 있음. 한글은 줄바꿈. 영어숫자는 word-wrap 설정해줘야함 -->
+         <!-- 한글은 break-all 영문은 keep-all이 기본값 -->
+        <p>45234523456236265252542342 3423423523445234523456236265252542342342342352344523452345623626525254234234234235234</p>
+        <p>가나다라마바사아차차카타타타아아다하하하하가나다라마바사아차차카타타타아아다하하하하가나다라마바사아차차카타타</p>
+    </div>
+    <div class="white-space">
+        <p>
+            <!-- nowrap : 무조건 한줄로 간닷-->
+            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 
+            국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+        </p>
+        <p>
+            <!-- pre : 벗어나던말던 그대로 -->
+            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 
+            국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+        </p>
+        <p>
+            <!-- pre-wrap : pre 이지만 wrap 해준다.-->
+            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 
+            국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+        </p>
+        <p>
+            <!-- pre-line : 줄바꿈만 기억하겠다-->
+            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 
+            국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+        </p>
+        <p>
+            국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 
+            국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 
+            국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+        </p>
+    </div>
+    
+</body>
+</html>

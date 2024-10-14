@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <!-- 
+            <input>의 속성
+            type : radio, checkbox,  submit, reset, button, image, file, hidden 등등 다양한 폼 컨트롤 생성
+                radio : 여러개 중 하나 선택
+                checkbox : 다중선택 가능
+                submit : 제출
+                reset : 입력 데이터 초기화
+            
+            checked : 자동 선택
+            disabled : 비활성화(재고 소진 등)
+            -->
+
+            <legend>피자 주문</legend>
+            <p>피자 사이즈를 선택해주세요</p>
+            <p><label>레귤러 <input type="radio" name="size" value="레귤러"></label></p>
+            <p>라지 <input type="radio" name="size" value="라지"></p>
+            <p>엑스라지 <input type="radio" name="size" value="엑스라지"></p>
+            
+            <!-- 선택 요소(드롭다운) -->
+            <select multiple name="size2">
+                <option value="regular">레귤러</option>
+                <option value="large" selected>라지</option> <!-- 사전기본값 -->
+                <option value="x-large">엑스라지</option>
+            </select>
+
+            <p>토핑을 선택해주세요</p>
+            <p><label>페퍼로니 <input type="checkbox" checked></label></p>
+            <p><label>파인애플 </label><input type="checkbox" disabled></label></p>
+            <p><label>불고기 </label><input type="checkbox"></label></p>
+            <p><label>고구마무스 </label><input type="checkbox"></label></p>
+            <p><label>치즈 </label><input type="checkbox" name="topping" value="cheese"></label></p>
+            <!-- topping=cheese&topping=garlic+beef -->
+            <p><label>갈릭비프 </label><input type="checkbox" name="topping" value="garlic beef"></label></p>
+            <button>주문</button>
+        </fieldset> 
+    </form>    
+</body>
+</html>

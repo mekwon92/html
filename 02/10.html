@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p {width: 500px; margin: 10px auto; border: 1px solid red;}
+        p:nth-child(1) {text-align: left;}
+        p:nth-child(2) {text-align: right;}
+        p:nth-child(3) {text-align: center;}
+        p:nth-child(4) {text-align: justify;} 
+
+        /* line-height 권장하지 않음 */
+        /* p:nth-child(5) {height: 500px; line-height: 500px;}  */
+        p:nth-child(5) {padding: 150px 0;}
+        p:nth-child(5) img {vertical-align: middle;}
+        
+        /* 요소 숨기기. 세가지 방법에 차이가 있음 */
+        p:nth-child(6) span { 
+            /* display: none; */
+            /* visibility: hidden; */
+        }
+        p:nth-child(6) {text-indent: -9999px;}
+    </style>
+</head>
+<body>
+    <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p>
+    <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p>
+    <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p>
+    <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p>
+    <!-- 이미지도 인라인. 기본값은 하단 기준으로 정렬됨 -->
+    <!-- 너비의 기본값은 100% 높이는 원본 비율에 따라 결정 내가 갖고있는 요소에 따라 결정 -->
+    <!-- 일반적으로 너비를 건들고 높이는 따라오도록 -->
+    <p>국가는 <img src="img/imfree.png">여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회에서 의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.</p> 
+    <!-- 인라인과 블록 속성이 달라서 상하배치하기 빡셈 -->
+    <!--고생 안하도록 레이아웃 설계단계부터 잘 해야됨 -->
+
+    <p><span>텍스트</span></p>
+</body>
+</html>
