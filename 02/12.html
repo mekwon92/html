@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /* 인라인블록으로 변경 */
+        javaman {
+            display: inline-block;
+            border: 1px solid;
+            width: 300px;
+            text-align: center;
+        }
+        /* display */
+        .gnb li {display: inline;}
+        /* 실제 넓이 : width+border+padding 인 것을 고려해야함 */
+        .gnb li a {
+            display: inline-block; 
+            background-color: brown; 
+            padding: 16px;
+            text-decoration: none;
+            color: #eee;
+        }
+        .gnb li a:hover {
+            text-decoration: underline;
+            background-color: #369;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 미인식 태그 -->
+    <javaman>헬로우</javaman>
+    <div class="gnb">
+        <ul>
+            <!-- inline block : 엔터가 공백처리됨 .. 실무에서는 float속성을 주로 사용함-->
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Community</a></li>
+        </ul>
+    </div>
+</body>
+</html>

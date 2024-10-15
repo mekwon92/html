@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+
+        div {text-indent: 30px;}
+        div h3 {color:red}
+        body h3 {background-color: skyblue;} 
+        
+        /* body > h3 {border: 5px solid black;}
+        div div > h2{color:magenta} > 써도 됨 */
+        
+        body > h3 {color: violet;}
+        div > div > h2 {color: brown;}
+        /*인접형제 선택자*/
+
+        h3 + p {color:cyan}
+        p + p {background-color: yellow;}
+        div + h2 {text-decoration: line-through;}
+    </style>
+</head>
+<body>
+    <h3>제목</h3>
+    <p>우리를 기쁘게 하는 것들</p>    
+    <p>건강에 좋은 차</p>    
+    <p>머리가 좋아지는 음식</p>
+
+
+    <div>
+        <div>
+            <h2>제목 1</h2>
+        </div>
+        <h2>제목 2</h2>
+        <h3>제목 3</h3>
+    </div>
+</body>
+</html>

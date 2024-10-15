@@ -8,19 +8,26 @@
     <style> 
         /* 전체선택자 : 들여쓰기 */
         * {text-indent: 40px;}
+
         /* type선택자 : 파란색*/
         p {color:blue;} 
+
         /* id선택자 */
         #ctxt {color:green}
+        
         /* class선택자 */
         .txt {font-style: italic;}
         .txt2 {text-decoration: underline;}  
+        
         /* 자손선택자 : 얘 조상중에 있냐? 라고 접근 */
         div h3 {color:red}
         body h3 {background-color: skyblue;}
+        
         /* 자식선택자 : 부모냐? */
         body > h3 {border: 5px solid black;}
-        div div > h2{color:magenta} /* > 써도 됨*/
+        div div > h2{color:magenta}
+        /* div > div > h2 도 가능 */
+        
         /*인접형제 선택자*/
         h3 + p {color:cyan}
         p + p {background-color: yellow;}

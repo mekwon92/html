@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        /*html body값의 기본값인 8px을 줄이기위해 margin을 0으로 설정!
+        인라인 중앙정렬은 body에 text-align: center*/
+        body {margin: 0; text-align: center;} 
+        
+        .img-wrap {width: 1920px; border: 1px solid;}
+        
+        /*부모를 쫓아가지만 최대 700px까지 하겠다*/
+        .img-wrap img {width: 100%; max-width: 700px; } 
+        
+        .box {width: 100px; height: 100px; background: red;
+            /* display: inline-block; */
+            margin: 20px 30px 40px 50px; /*블록의 margin 정렬은 auto 사용*/    
+        }
+        
+        /* 실무에서는 이런식으로 class설정 후 작업 */
+        .mx-auto {margin-left: auto; margin-right: auto;}
+        .ml-auto {margin-left: auto;}
+    </style>
+</head>
+<body>
+    <!-- <div class="img-wrap"> -->
+        <img src="img/bg_size.png">
+    <!-- </div>     -->
+     <hr>
+     <div class="box mx-auto"></div>
+     <div class="box ml-auto"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+     <div class="box"></div>
+</body>
+</html>
