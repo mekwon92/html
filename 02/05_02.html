@@ -6,7 +6,6 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-    *
         /* 가상요소 자주씀! 공백에 신경써야함 */
         /* 첫번째 요소, 마지막 요소, n번째 자식, n번째 타입, 이전, 이후 */
         /* nth:n번째를 의미함 */
@@ -33,12 +32,14 @@
         /* p::before {content: '접두사';} */
 
         /*공백있는 순간 자식으로 의미가 변함 */
-        div.cls#id {color: black;} 
-        
+        div.cls#id {color: magenta;} 
+
+        /* 타입선택자의 우선순위는 1이라 밀리는모습... */
+        div {color: aquamarine;}        
     </style>
 </head>
 <body>
-    <div class="cls" id="id">
+    <div class="cls" id="id">요요요
         <h1>대 제목</h1>
         <p>문단1</p>
         <p>문단2</p>

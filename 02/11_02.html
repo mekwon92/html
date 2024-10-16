@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        p {width: 150px; text-align: center; border: 1px solid;}
+        .breaking1 {word-break: normal;}
+        .breaking2 {word-break: break-all;}
+        .breaking3 {word-break: keep-all;}
+        .breaking4 {word-wrap: break-word; word-break: keep-all;}
+    </style>
+</head>
+<body>
+    <!-- 기본값 -->
+    <p class="breaking1">
+        홍길동<br>
+        한국사회역사연구회 고고학과 전임교수<br>
+        notonlystartinggood@naver.com
+    </p>
+    <!-- break-all : 글자가 넘치면 줄바꿈 -->
+    <p class="breaking2">
+        홍길동<br>
+        한국사회역사연구회 고고학과 전임교수<br>
+        notonlystartinggood@naver.com
+    </p>
+    <!-- keep-all : 단어를 끊어서 줄바꿈하지 않음. 살린다.-->
+    <p class="breaking3">
+        홍길동<br>
+        한국사회역사연구회 고고학과 전임교수<br>
+        notonlystartinggood@naver.com
+    </p>
+    <!-- break-word : 넘어가면 자름 & keep-all : 단어 살림 -->
+    <p class="breaking4">
+        홍길동<br>
+        한국사회역사연구회 고고학과 전임교수<br>
+        notonlystartinggood@naver.com
+    </p>
+</body>
+</html>

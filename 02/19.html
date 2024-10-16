@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .box {width: 100px; height: 100px;}
+        .box1 {
+            background-color: red;
+            border-radius: 10px;    
+        }
+        .box2 {
+            background-color: blue;
+            border-radius: 10px 30px 50px 70px;
+            /* 11시부터 시계방향으로 적용된다 */
+        }
+        .box3 {
+            /* 타원만들기 */
+            background-color: green;
+            border-top-right-radius: 20px 50px;
+        }
+        .box4 {
+            /* %로 지정하면 외부값에 영향을 받지않는 깔끔한 원을 만들 수 있다 */
+            background-color: deeppink;
+            border-radius: 50%;
+            padding: 30px;
+            border: 20px solid red;
+        }
+        .border-image {
+            width: 600px; height: 50px; padding: 15px;
+            border: 10px solid transparent;
+        }
+        .round {
+            /* 브라우저는 최적화된 것을 적용함 */
+            border-image: url(img/border.png) 27 round; /* 표준 css 속성*/
+            -webkit-border-image: url(img/border.png) 27 round; /* 웹킷 기반 브라우저용 */
+            /* 
+            최신 기능 표준화와 관련?
+            접두사는 웹킷 기반 브라우저에서 CSS 속성을 지원하기 위한 것
+            -webkit-
+            -moz-
+             */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>    
+    <div class="box box2"></div>    
+    <div class="box box3"></div>    
+    <div class="box box4"></div>    
+    <div class="border-image round">테두리 이미지 테스트</div>    
+
+</body>
+</html>

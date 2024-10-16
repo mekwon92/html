@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .box {
+            display: inline-block;
+            width: 300px;
+            padding: 20px;
+            border-radius: 55px 10px / 10px 55px;
+            background-color: #ace;
+
+            box-shadow: 
+                5px 5px 5px darkred,
+                10px 10px 5px yellow
+                ;
+                resize: both;
+                overflow: auto; /*두가지 같이써야 적용가능. 없애는용도로 사용?*/
+        }
+        textarea {resize: vertical;}
+        .wrap {display: inline-block; border: 3px solid; perspective: 20px;}
+        .trans:hover img {transform: translate(10px, 50px);}
+        .rotate:hover img {transform: rotate(30deg);}
+        .rotatex:hover img {transform: rotateX(45deg);}
+        .scale:hover img {transform: scale(2, 0.5);}
+        .skew:hover img {transform: skew(30deg, 20deg);}
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        간단한 텍스트
+    </div>    
+    <hr>
+    <textarea name="" id="" cols="50"></textarea>
+
+    <hr>
+
+    <div class="wrap trans">
+        <img src="img/bg_sun.png">
+    </div>
+    <div class="wrap rotate">
+        <img src="img/bg_sun.png">
+    </div>
+    <div class="wrap rotatex">
+        <img src="img/bg_sun.png">
+    </div>
+    <div class="wrap scale">
+        <img src="img/bg_sun.png">
+    </div>
+    <div class="wrap skew">
+        <img src="img/bg_sun.png">
+    </div>
+</body>
+</html>

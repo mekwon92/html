@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+         .box {
+            width: 300px; 
+            height: 150px; 
+            border: 3px solid blue;
+            /* 개별적으로 지정하면 4방향 각각 가능 */
+            border-width: 5px 10px;
+            border-color: red green orange;
+            border-style: solid dashed dotted double;
+        }
+        .wrap {background-color: blue; padding: 30px;}
+        .balloon {
+            /* display : inline-block; */
+            padding: 30px; 
+            color: #eee;
+            background-color: #222;
+            max-width: 200px;
+            position: relative;
+            margin: 80px 0;
+        }
+        /* 텍스트도 인라인. after::은 인라인에쓴다 */
+        .balloon::after {
+            position: absolute;
+            bottom: -34px;
+
+            display: block;
+            content: ''; 
+            /*content는 꼭 지정되어야 한다. 여기선 단순 공간확보 목적
+
+            ::before와 ::after 가상 요소는 기본적으로 아무것도 표시하지 않습니다. 
+            이들 가상 요소에 content 속성이 지정되지 않으면, 
+            해당 요소는 화면에 나타나지 않습니다.
+            */
+
+            width: 0;
+            border: 10px solid transparent;
+            /* border-color: red gray green orange; */
+            border-top: 25px solid #222;
+            margin-left: 50px;
+            transform: skewX(-30deg);
+        }
+        .me::after {
+            transform: skewX(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>    
+    <div class="wrap">
+        <div class="balloon">가나다라가나다라가나다라가나다라가나다라가나다라가나다라나다라가나다라가나다라가나다라나다라가나다라가나다라가나다라</div>
+        <div class="balloon">추가텍스트</div>
+        <div class="balloon me">내가 쓴 텍스트</div> 
+    </div>
+</body>
+</html>

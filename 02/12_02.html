@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        li {list-style-type: none;}
+        .gnb li { display: inline;}
+        /* 실제 넓이 : width+border+padding 인 것을 고려해야함 */
+        .gnb li a {
+            display: inline-block;
+            background: brown;
+            color: #eee;
+            width: 100px; padding: 20px; text-align: center; 
+            text-decoration: none;
+        }
+        .gnb li a:hover {
+            text-decoration: underline;
+            background-color: burlywood;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- gnb:global navigation bar -->
+    <ul class="gnb">
+        <!-- inline block : 엔터가 공백처리됨 .. 실무에서는 float속성을 주로 사용함-->
+        <li><a href="#">company</a></li>
+        <li><a href="#">product</a></li>
+        <li><a href="#">service</a></li>
+        <li><a href="#">community</a></li>
+    </ul>
+</body>
+</html>

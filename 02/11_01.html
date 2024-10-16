@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        ul {width: 200px; border: 1px solid #000;}
+        /* 연속된 단어인 경우 잘라주는 역할 */
+        .wrapping {word-wrap: break-word;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>홍길동</p>
+        </li>
+        <li>
+            <p>이메일 : kildong20180101koreapublishing20181231@hanmail.net</p>
+            <p>이메일 : kildong20180 101koreapublishing2 0181231@hanmail.net</p>
+        </li>
+    </ul>
+    <ul class="wrapping">
+        <li>
+            <p>홍길동</p>
+        </li>
+        <li>
+            <p>이메일 : kildong20180101koreapublishing20181231@hanmail.net</p>
+        </li>
+    </ul>
+</body>
+</html>
