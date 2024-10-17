@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- css부터하지말고,,,html부터
+  li, placeholder 등으로 개요작성 간단히 하고 유효성검사부터 받기 -->
+<html lang="ko">
+<head>
+    <!-- ul 밑에는 li만 올 수 있고 table 밑에는 tr만 올수있다....... -->
+     <!-- 블록은 100 인라인은 -->
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>2-col-layout</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .clearfix::after {display: block; content: ''; clear: both;}
+        body {margin: 0;}
+        header,footer {text-align: center; background-color: bisque; padding: 16px;}
+        main {width: 1280px; margin: 0 auto;}
+        ul {padding: 0; list-style: none; margin: 0;}
+
+        /* gnb 영역 */
+        /* float는 구체적으로 해주자 4단계정도로.. 이상이 될 것 같으면 class 쓰기*/
+        .gnb {background-color: #222;}
+        .gnb > ul {position: relative;}
+        .gnb > ul > li {float: left; margin: 16px 40px;}
+        .gnb > ul > li > a {color: #eee; text-decoration: none;}
+        .gnb > ul > li > a:hover {color: bisque; text-shadow: 0 0 1px #eee;}
+        
+        .gnb li ul {display: none;}
+        .gnb:hover ul ul, .gnb:hover div {display: block;}
+        
+        .gnb ul ul {position: absolute; top: 60px; z-index: 99;}  /* 위치 신경 잘써야함,,, 색상 상속도 안받음 */
+        .gnb ul ul li {margin: 20px 0;}
+        .gnb div {position: absolute; width: 1280px; height: 200px; background-color: #222; display: none;}
+        /*absolute는 너비값 0이 됨?... 부모를 빨아간다구...?*/
+
+        /* 본문 영역 : margin padding width 고려 잘해서 생각 후에 작성해야함*/
+        /* 합계가 전체 container을 넘지않게 해야함(안그럼 밑으로 떨어짐) */
+        main > div {min-height: calc(100vh - 225px);}
+        .content, .aside {margin: 10px; padding: 10px; float: left;}
+        .content {width: 800px;}
+        .aside {width: 400px;}
+        .aside p {margin-bottom: 5px;}
+        .aside label {font-size: 12px;}
+        .aside input, .aside button {padding: 8px; margin-bottom: 20px; width: 200px; box-sizing: border-box;}
+
+        /* 레이어 팝업(내부팝업) */
+        .layer-popup {width: 420px; position: absolute; top:150px; left:calc(50% - 210px)}
+        .layer-popup img {display: block;}
+        .layer-popup p {background-color: lightblue; color: #eee; margin: 0; padding: 8px; font-size: 13px;}
+        .layer-popup p input {vertical-align: middle;}
+        .layer-popup p a {color: #eee; text-decoration: none; float: right;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>제목</h1>
+        </header>
+        <main>
+            <nav class="gnb">
+                <!-- 여기 clearfix하면 높이가 0이된다???? -->
+                <ul class="clearfix">
+                    <li><a href="#">메뉴1</a>
+                        <ul>
+                            <li><a href="#">서브1</a></li>
+                            <li><a href="#">서브2</a></li>
+                            <li><a href="#">서브3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴2</a>
+                        <ul>
+                            <li><a href="#">서브1</a></li>
+                            <li><a href="#">서브2</a></li>
+                            <li><a href="#">서브3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴3</a>
+                        <ul>
+                            <li><a href="#">서브1</a></li>
+                            <li><a href="#">서브2</a></li>
+                            <li><a href="#">서브3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">메뉴4</a>
+                        <ul>
+                            <li><a href="#">서브1</a></li>
+                            <li><a href="#">서브2</a></li>
+                            <li><a href="#">서브3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div></div>
+            </nav>
+            <!-- 감싸주는게 좋다.. -->
+            <div class="clearfix">
+                <section class="content">
+                    <h2>메인컨텐츠</h2>
+                    <p>텍스트</p>
+                    <p>텍스트</p>
+                    <p>텍스트</p>
+                    <p>텍스트</p>
+                    <p>텍스트</p>
+                    <p>텍스트</p>
+                </section>
+                <aside class="aside">
+                    <form>
+                        <p><label for="id">아이디</label></p>
+                        <input name="id" id="id" placeholder="아이디를 입력하세요">
+                        <p><label for="pw">비밀번호</label></p>
+                        <input name="pw" id="pw" placeholder="비밀번호를 입력하세요">
+                        <br>
+                        <button>로그인</button>
+                    </form>
+                    <ul>
+                        <li>광고1</li>
+                        <li>광고2</li>
+                        <li>광고3</li>
+                        <li>광고4</li>
+                    </ul>
+                </aside>
+            </div>
+            <div class="layer-popup">
+                <img src="https://image.yes24.com/momo/scmfiles/AdvertFiles/202410/2578206_241014101146.jpg">
+                <p class="clearfix">
+                    <span>오늘은 그만보기 <input type="checkbox"></span>
+                    <a href="#">닫기</a>
+                </p>
+
+                </div>
+        </main>
+
+        <footer>
+            꼬릿말
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body, div, p {margin: 0; padding: 0;}
+        body {margin: 20px; background-image: url(img/bg_grid.gif);}
+        .box {
+            position: relative;
+            width: 650px; 
+            background-color: rgba(0, 0, 0, 0.3);}
+        p {
+            width: 250px; height: 100px; box-sizing: border-box; 
+            padding: 10px; font-weight: bold;
+        }
+        .red {background: red;}
+        .green {
+            background: green; 
+            position: absolute; z-index: 1;
+            left:70px; 
+            top:50px;}
+        .blue {
+            background: dodgerblue; 
+            position: relative;}
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="red">빨간박스</p>
+        <p class="green">초록박스</p>
+        <p class="blue">파란박스</p>
+    </div>    
+</body>
+</html>
