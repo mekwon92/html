@@ -84,3 +84,7 @@ function max2() {
 }
 max2(10, 20, 30, 40);
 
+
+// document.addEventListener("click",function() {
+//     //click시 할 일  
+//    });

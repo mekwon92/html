@@ -20,12 +20,13 @@
         // setTimeout(function() {
         //     clearInterval(retInter);
         // }, 10000);
-
+        
         var anonyFunc = function() {
             clearInterval(retInter);
         };
         setTimeout(anonyFunc, 10000);
 
+        console.log(this); //window
     </script>
 </body>
 </html>
