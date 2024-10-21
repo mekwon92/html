@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .clearfix::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        body {margin: 0;}
+        header, footer {
+            background-color: bisque;
+            text-align: center;
+            padding: 16px;
+        }
+        main {
+            width: 1280px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        /*  */
+
+        .gnb {
+            background-color: beige;
+        }
+        .gnb ul {
+
+        }
+        .gnb ul li {
+
+        }
+        .gnb>ul>li>ul {
+            display: inline-block;
+        }
+        li>ul>li {
+            display: none;
+        }
+
+        /*  */
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>제목1</h1>
+        </header>
+        <main>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="#"></a>메뉴1
+                        <ul>
+                            <li><a href="#"></a>서브1</li>
+                            <li><a href="#"></a>서브2</li>
+                            <li><a href="#"></a>서브3</li>
+                        </ul>
+                    </li>
+                    <li><a href="#"></a>메뉴2
+                        <ul>
+                            <li><a href="#"></a>서브1</li>
+                            <li><a href="#"></a>서브2</li>
+                            <li><a href="#"></a>서브3</li>
+                        </ul>
+                    </li>
+                    <li><a href="#"></a>메뉴3
+                        <ul>
+                            <li><a href="#"></a>서브1</li>
+                            <li><a href="#"></a>서브2</li>
+                            <li><a href="#"></a>서브3</li>
+                        </ul>
+                    </li>
+                    <li><a href="#"></a>메뉴4
+                        <ul>
+                            <li><a href="#"></a>서브1</li>
+                            <li><a href="#"></a>서브2</li>
+                            <li><a href="#"></a>서브3</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <section class="content">
+                <h2>메인 컨텐츠</h2>
+                <p>텍스트</p>
+                <p>텍스트</p>
+                <p>텍스트</p>
+                <p>텍스트</p>
+                <p>텍스트</p>
+            </section>
+            <aside class="aside">
+                <form>
+                    <p><label for="id">로그인</label></p>
+                    <input id="id" placeholder="id입력">
+                    
+                    <p><label for="pw">비밀번호</label></p>
+                    <input id="pw" placeholder="pw입력">
+                    <br>
+                    <button>로그인</button>
+                    <ul>
+                        <li>광고1</li>
+                        <li>광고2</li>
+                        <li>광고3</li>
+                        <li>광고4</li>
+                        <li>광고5</li>
+                    </ul>
+                </form>
+            </aside>
+        </main>
+        <footer>
+            <p>꼬릿말</p>
+        </footer>
+    </div>   
+</body>
+</html>

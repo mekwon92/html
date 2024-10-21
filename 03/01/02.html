@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p {margin: 0;}
+        /* div:nth-of-type(1) {color: red;} */
+    </style>
+    <script>
+        // 배열 선언 "red", "green", "blue"
+        var colors = ["red", "green", "blue","deeppink"];
+
+        // 구구단 출력
+        for(var i=2; i<10;i++) {
+            document.write("<h3>"+i+"단</h3><div style='color:" + colors[i%4] + "'>");
+            for(var j=1;j<10;j++){
+                document.write(`<p>${i} * ${j} = ${i*j}<p>`); 
+            }
+            document.write("</div><hr>");
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
