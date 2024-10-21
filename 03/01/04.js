@@ -3,7 +3,7 @@ console.log(arr.length);
 
 var arr2 = new Array(10);
 console.log(arr2);
-console.log(arr2[0]);
+console.log(arr2[0]); //undefined
 
 // slice (문자열 substring과 같은 역할)
 var arr3 = arr.slice(1, 2); // 1 이상 인덱스 2미만 인덱스까지 자르기

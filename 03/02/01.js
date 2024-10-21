@@ -12,7 +12,7 @@ function f(x) {
 console.log(f(10));
 
 console.log(abc); // undefined 
-var abc = "1234;"
+var abc = "1234";
 
 // 2. 익명 함수 : 타입이 함수인 변수
 // 변수 선언 후 타입이 함수인 대상을 할당
@@ -22,9 +22,6 @@ var f2 = function (x) {
     return x * x;
 }
 
-console.log(function (x) {
-    return x * x;
-}(20));
 
 console.log(f2(20));
 // $(); // 얘도 함수다~!
@@ -39,14 +36,20 @@ console.log(f2(20));
 
 
 //3. 즉시실행함수 : 1회용 목적으로 쓰는 익명함수. 익명클래스랑 비슷
+console.log(function (x) {
+    return x * x;
+}(20));
+
 (function(str) {
     console.log("hello"+str);  
 })("javascript");
+
 // 괄호 위치는 이렇게도 가능함
 (function(str) {
     console.log("hello"+str);  
 }("javascript"));
 
+//화살표 함수로 변경
 ((str) => {
     console.log("hello" + str);
 })("js");
@@ -78,13 +81,27 @@ console.log(max(10, 5));
 
 // 여러 수를 입력받아 그 중 큰 값을 반환하는 함수
 //arguments : 배열 비스무리한..
-function max2() {
+function arg() {
    console.log(arguments);
    console.log(arguments.length);
 }
-max2(10, 20, 30, 40);
+arg(10, 20, 30, 40);
 
+function max2() {
+    var max = -Number.MAX_VALUE;
+    for(var i = 0; i < arguments.length; i++){
+        if(typeof arguments[i] !== "number"){
+            return undefined;
+        }
 
-// document.addEventListener("click",function() {
-//     //click시 할 일  
-//    });
+        if(arguments[i] > max){
+            max = arguments[i];
+        }
+    }
+    return max == -Number.MAX_VALUE ? undefined : max;
+}
+
+//이런식으로 활용되나봄...?
+document.addEventListener("click", function() {
+    console.log("클릭했습니다!");
+});
