@@ -25,6 +25,7 @@
         // JS의 변수 타입은 할당 시점에 결정된다. 
         // 값이 없으면 undefined 미정의 값. not defined랑 다름
         //  (자바의 경우 할당시에 타입체크를 함)
+
         var num = 10;
         var str = 'A';
         num = 20;
@@ -41,18 +42,14 @@
 <body>
     <script>
         console.log(num, un); //un : undefined (미정의)
-        //console.log(num2); //num2 : not defined (정의 안함)
+        console.log(num2); //num2 : not defined (정의 안함)
 
         // 연산자는 피연산자를 가린다
         console.log(!("35" + 2 ) / 2);
         // "35"+2 는 문자열 352임 여기에 !을 사용해서 0이되는것~
         // 빈문자열은 0 나머지는 1 
         // 0 나누기 2는 0
-        console.log(obj, obj2);
-        
-        
-        
-    </script>
-    
+        console.log(obj, obj2);      
+    </script>   
 </body>
 </html>

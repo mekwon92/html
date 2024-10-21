@@ -57,10 +57,11 @@ arr[5].x = 30;
 console.log(arr[5].y); // 20
 console.log(arr[5]['x']); // 30
 
-console.log(arr[4][2]);
+console.log(arr[4][2]); // 3
 
 arr.length = 20;
-console.log(arr.length);
+console.log(arr.length); // 20
+
 console.log(arr);
 console.log(arr[100]); //undefined
 

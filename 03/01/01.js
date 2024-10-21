@@ -27,10 +27,12 @@ console.log(s.total());
 var num = 10;
 // num = "10";
 num = String(num);
-num = Boolean(String(num));
-console.log(num, typeof num); // 타입확인 : 단항연산자. 대상 피연산자의 타입을 문자열로 반환
-console.log(typeof num == "number"); //true임~!
 
+console.log(typeof num == "number"); //true임~!
+console.log(num, typeof num); // 타입확인 : 단항연산자. 대상 피연산자의 타입을 문자열로 반환
+
+num = Boolean(String(num));
+console.log(num, typeof num);
 
 var num = 10;
 if(num) {
@@ -63,7 +65,7 @@ console.log(num, typeof num);
 num +='';
 console.log(num, typeof num);
 
-//문자열을 숫자로 변경하려면 ? NaN
+//문자열을 숫자로 변경하려면 ? NaN:Not a Number
 num = "abcd";
 num /= 1;
 console.log(num, typeof num); 
@@ -71,7 +73,7 @@ console.log(num, typeof num);
 console.log(3/0, 0/0); //Infinity NaN
 // 형변환하는 경우 NaN 을 볼 경우가 있다~!
 
-
+console.log(!("35" + 2 ) / 2);
 
 
 // 다른 데이터 타입이 논리 연산중 false가 오는 경우
@@ -80,6 +82,7 @@ console.log(3/0, 0/0); //Infinity NaN
 // 객체 : null                   null은 object이다. null : 객체의 주소가 없는 상태
 // 함수 : 함수는 무조건 참.      함수는 1급 객체 first class object (함수 기본값은 null?)
 // undefined : 항상 거짓
+
 function f(x) {
     x();
 }
