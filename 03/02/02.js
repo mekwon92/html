@@ -12,13 +12,13 @@ console.log(typeof f(undefined));// undefined
 
 function myFunc() {
     console.log("핫하");
-};
+}
 
 
 
 console.log(typeof f(myFunc())); //undefined가 전달...... why? return값이 없응께
 console.log(typeof f(myFunc)); //function
-
+f(myFunc);
 f(myFunc)(); //핫하
 // 콜백 : 파라미터로 전달되는 함수
  
@@ -50,15 +50,11 @@ function test() {
 test();
 console.log(b);
 
-for(var i = 0; i < 10; i++){
-
-}
-
-console.log(i);
 
 {{{{{{{{var num = 30;}}}}}}}}
 console.log(num);
 
+// var : 함수 레벨 스코프!함수 안쪽에 있는 건 관대함
 function f1(){
     var local = 30;
     function f2() {
@@ -67,16 +63,20 @@ function f1(){
     f2();
 }
 f1();
-// 안쪽에 있는 건 관대함.... 단위가 블록이 아니라 함수 단위인..?
 
-
-// let : 블럭 기반으로 동작하는 변수 생성
+// 재선언 가능
 var a = 10;
 var a = 20;
-// 근본없음
+
+// let : 블럭 레벨 스코프 ! 재선언 불가능
+
+console.log(numb); // HOISTING 대상이 되지 않음
+// cannot access 'number' before initializaion이라고 뜸. undefined는 아님.
+
 let numb = 20;
-//HOISTING 대상이 되지 않음. cannot access 'number' before initializaion이라고 뜸. undefined는 아님.
-//이렇게 불가능함. 변수 선언은 무조건 let으로 하자
+// 참고하기 https://ui.toast.com/weekly-pick/ko_20191014
+// 2번 변수 선언은 무조건 let으로 하자
+
 
 for(let s = 0; s < 10; s++) {
     console.log(s);
@@ -86,6 +86,7 @@ for(let s = 0; s < 10; s++) {
 let fn = function(x) {
     console.log("hello"+x);
 }
+
 fn("world");
 
 // java : final double PI = Math.PI;
@@ -104,8 +105,11 @@ console.log(increaseCount());
 console.log(increaseCount());
 
 // closure : 지역변수가 함수 종료 후에도 남아 있는 현상
-// clusure 동작의 최소 조건 : 함수를 리턴해야만 사용 가능!
-// 전역변수에 접근하지않기위해 사용하는 것....  geolocation에 사용(콜백을 덜해도 됨)
+// closure 동작의 최소 조건 : 함수를 리턴해야만 사용 가능!
+// 전역 변수를 접근하지 않기 위해 사용하는 것 - 모듈화, 유지보수 용이
+
+// geolocation에 사용(콜백을 덜해도 됨..) 프로미스도 콜백때 사용??????어싱크????
+
 function increaseCount2() {
     let n2 = 0;
     function inner(){
@@ -114,6 +118,8 @@ function increaseCount2() {
     }
     return inner;
 }
+
+
 
 let tmp = increaseCount2();
 console.log(tmp());

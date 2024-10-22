@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script>
+        console.log();
+        navigator.geolocation.getCurrentPosition(function(position){
+            console.log(position);
+            document.write(position.coords.latitude + '<br>');
+            document.write(position.coords.longitude);
+        })
+
+        //클로저? ... for in 이용..???
+    </script>    
+</body>
+</html>
+

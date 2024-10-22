@@ -105,3 +105,6 @@ function max2() {
 document.addEventListener("click", function() {
     console.log("클릭했습니다!");
 });
+
+
+// 메서드 파라미터에 기본값을 쓸수있음??? default parameter
