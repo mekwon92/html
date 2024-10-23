@@ -32,3 +32,5 @@ switch(now.getDay()){
 
 console.log(now.getTimezoneOffset());
 
+// 정규식
+const regExp = /[A-Za-z0-9]/gi;

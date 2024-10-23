@@ -1,3 +1,17 @@
+
+//둘다 타입은 다르게 나오지만(number, object) 관련 메서드는 둘 다 호출 가능함
+let num = 20; //typeof number
+console.log(num.toFixed(2));
+
+num = new Number(20.2341); //typeof object
+console.log(num.toFixed(2));
+
+// 함수 Number('1234');
+// 생성자 함수 new Number('1234');
+
+let str1 = 'abcd';
+num = new String('ABCD');
+
 let number = 20;
 // 14[16] 10100[2]
 
@@ -31,15 +45,15 @@ const arr = [10, 20, 3, 40, 5];
 // 내부적으로 문자를 비교해서 이상함...
 //  숫자영역을 위한 comperator 필요...? 콜백 필요함...
 
-arr.sort1((a,b)=>a-b); // 오름차순
+arr.sort((a,b)=>a-b); // 오름차순
 
-arr.sort2(function(a,b) {
+arr.sort(function(a,b) {
     return b-a;
 })
 
 console.log(arr);
 
-//for of  : 리터러블한 것만 가능? 배열! 향상for문과 동일
+//for of:리터러블(반복할 수 있는 객체)에 사용 배열에 주로쓰임 향상for문과 동일 ES6
 //for in을 자주 씀
 
 const multi = [

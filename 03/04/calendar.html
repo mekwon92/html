@@ -5,15 +5,14 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- CDN(content delivery network) cdnjs-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" integrity="sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- dlc : 로케일은 아래 나와야함 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js" integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const now = new Date();
+
+        now.setMonth(11);
+        now.setDate(1);
+
         const days = ['일','월','화','수','목','금','토'];
         const lastDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        now.setDate(1);
         const firstDay = now.getDay();
 
         let lastDate = lastDates[now.getMonth()];
@@ -24,7 +23,8 @@
         }
 
         let calStr = '';
-        calStr += '<table>'
+        calStr += '<table>';
+        calStr += `<caption><h2>${now.getFullYear()}/${now.getMonth()+1}</h2></caption>`
         // 제목부분
         calStr += '<tr>'
         for(let val of days){
@@ -33,18 +33,28 @@
         calStr += '</tr>';
         // 날짜부분
         calStr += '<tr>';
-        for(let i = 1 - firstDay ; i <= lastDate; i++){
-            calStr += `<td>${i}</td>`
-            if(i % 7 == 7 - (firstDay) % 7){
+        const endPoint = parseInt((lastDate + firstDay + 6 ) / 7) * 7 - firstDay;
+        for(let i = 1 - firstDay ; i <= endPoint; i++){
+            if(i < 1 || i > lastDate) {
+                calStr += `<td></td>`
+            }
+            else{
+                calStr += `<td>${i}</td>`
+            }
+
+            if(i % 7 == (7 - firstDay) % 7){
                 calStr += '</tr><tr>'
             }
         }
         calStr += '</tr>'
         calStr += '</table>'
         document.write(calStr);
+
+        //자식 입장에서의 부모. 나를 연 사람의 객체.
+        window.opener
     </script>
     <style>
-        /* table, th, td {border: 1px solid #222;} */
+        table, th, td {border: 1px solid #222;}
         th {border-bottom: 3px solid #222;}
         table {border-collapse: collapse; margin : 0 auto;}
         th, td {padding: 25px; text-align: center;}

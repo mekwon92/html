@@ -16,8 +16,8 @@ function myFunc() {
 
 
 
-console.log(typeof f(myFunc())); //undefined가 전달...... why? return값이 없응께
-console.log(typeof f(myFunc)); //function
+console.log(typeof f(myFunc())); // 호출 : undefined가 전달...... why? return값이 없응께
+console.log(typeof f(myFunc)); // 전달 : function
 f(myFunc);
 f(myFunc)(); //핫하
 // 콜백 : 파라미터로 전달되는 함수

@@ -1,8 +1,15 @@
 // foreach, map, filfer 3가지는 무조건 외우기  엄청많이쓰는 형태임!
 // https://armadillo-dev.github.io/es6/javascript/array-methods/
 
+// filter(predicate) : 주어진 조건에 따라 필터링하여 새로운 배열을 생성
+// map(callbackfn) : 배열의 각 요소를 변환하여 새로운 배열을 생성
+// foreach(callbackfn) : 배열의 각 요소에 대해 주어진 함수를 실행
+
 const arr = [10,20,30,40,50];
-// fliter(predicate), foreach(consumer)
+
+console.log(arr.filter(x => x % 20 != 0)); // [10, 30, 50]
+arr.filter(x => x % 20 != 0).forEach(x=>console.log(x));
+
 // 10, 30, 50 만 출력
 function f(x) {
     return x % 20 != 0;
@@ -21,8 +28,8 @@ arr.filter(f).map(f3).forEach(f2);
 
 console.log(arr.filter(x => x % 20 != 0));
 
-//stream?
-arr.filter(x => x % 20 != 0).map(x => 2 / 10).forEach(x => console.log(x));
+//stream
+arr.filter(x => x % 20 != 0).map(x => x ** 2 / 10).forEach(x => console.log(x));
 
 //익명함수
 arr
@@ -33,8 +40,7 @@ arr
     return x ** 2 / 10
 })
 .forEach(function(x) {
-    console.log(x);
-    
+    console.log(x); 
 })
 
 // reduce?는 차원을 줄이는... 몽고db에서 많이 씀

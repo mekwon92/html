@@ -21,7 +21,7 @@ let student2 = {no : 2, name : "주커버그", kor : 70, eng : 70, mat : 70, tot
 ,avg : function() {
     return (this.kor+this.eng+this.mat)/3;
 }
-,toString :function(){
+,toString : function(){
     return `이름 : ${this.name} 총점 : ${this.total()} 평균 : ${this.avg()}`;
 }};
 
@@ -90,10 +90,10 @@ for(let i = 0; i < students.length; i++){
     console.log(students[i].total());   
 }
 
-//모든함수는 프로토타입이 있다,,,,,,,,
-//프로토타입은 함수를 통해 생성된 인스턴스로 접근....????
-//프로토 타입 : 객체만의 공간 (js에만 있는 개념. 메서드 저장 용도??)
-Student.a = 10;
+//모든함수는 프로토타입이 있다.
+//프로토타입은 생성된 인스턴스를 통해 접근할 수 있다.
+//프로토 타입 : 객체만의 공간 (js에만 있는 개념. 메서드 저장 용도)
+Student.a = 10; // 정적 속성
 console.log(Student.a);
 // console.log.prototype
 Student.prototype.area = 20;
