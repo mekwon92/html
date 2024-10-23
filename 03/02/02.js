@@ -119,9 +119,18 @@ function increaseCount2() {
     return inner;
 }
 
+// let tmp = increaseCount2();
 
 
-let tmp = increaseCount2();
+let tmp = function() {
+    let n2 = 0;
+    return function() {
+        n2++;
+        return n2;
+    };
+}();
+
+
 console.log(tmp());
 console.log(tmp());
 console.log(tmp());

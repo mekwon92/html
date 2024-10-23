@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- CDN(content delivery network) cdnjs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" integrity="sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- dlc : 로케일은 아래 나와야함 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js" integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        moment.locale('ko');
+        console.log(moment.locale());
+
+        const now = new Date();
+        now.setDate(7);
+
+        const m = moment(now);
+        const mid = moment('2001/03/01', 'YYYY/MM/DD');
+        
+        console.log(m.format('yyyy/MM/DD HH:mm:ss'));//문자열 번역 뿐 아니라 반대도 가능?
+
+        console.log(mid.format('yyyy/MM/DD HH:mm:ss'));
+        console.log(mid.fromNow());
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+</body>
+</html>
