@@ -13,13 +13,13 @@
     // 사실은.. 함수도 윈도우의 프로퍼티였다...var 변수도...  
     // let은 포함 안됨... let으로 하는 익명함수도?!
     function f() {
-        console.log("f()", window.a);
-        
+        console.log("f()", window.a);  
     }
+
     for(let i in window) {
         // document.write("<p>" + i + ":::::"+window[i]);
-
     }
+    
     const winProxy = open('calendar.html','','width=400, height=400,top=100'); //proxy : 대체, 대리
     // window == this
     winProxy.document.write("<p>부모가씀</p>"); //덮어써버림 부모에서 자식 제어가능

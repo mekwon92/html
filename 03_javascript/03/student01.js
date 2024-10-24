@@ -121,7 +121,7 @@ function Student2(no, name, kor, eng, mat) {
     this.mat = mat;
 }
 
-const student3 = new Student(4, "이재용", 100, 60, 60);
+const student3 = new Student2(4, "이재용", 100, 60, 60);
 console.log(student3.getNo());
 student3.setNo(10);
 console.log(student3.getNo());
@@ -130,3 +130,9 @@ console.log(student3.no); //접근불가
 console.log(student3._no);
 
 students.push(student3);
+
+for(i of students){
+    console.log(i,students[i]);
+}
+
+console.log(students[0]);

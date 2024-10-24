@@ -79,6 +79,3 @@ const groupByGender = accounts.reduce((acc, curr) => {
 console.log(groupByGender) // { male: [...], female: [...] }
 
 //링크에 find도 있음
-
-//위도 북위 남위 (적도기준)
-//경도 동경 서경 (영국기준)

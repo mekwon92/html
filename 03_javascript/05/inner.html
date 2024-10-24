@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="wrap">
+        <p><mark>Hello</mark><a href="http://www.naver.com">네이버</a>
+        </p>
+    </div>
+    <script>
+        //innerHTML, innterText
+        const wrap = document.getElementById("wrap")
+        console.log(wrap.innerHTML); // 특정 돔 안에있는거
+        console.log(wrap.outerHTML); // 특정 돔 포함해서
+        
+        console.log(wrap.innerText);
+
+        wrap.innerHTML += '<p>hello</p>' // </p>뒤에 붙게 됨
+        
+        wrap.innerText += '<p>hello</p>'
+        
+    </script>
+</body>
+</html>

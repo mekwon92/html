@@ -12,8 +12,6 @@ console.log(now.getDay());
 const days = ['일','월','화','수','목','금','토'];
 console.log(days[now.getDay()]);
 
-console.log();
-
 
 switch(now.getDay()){
     case 0: 
@@ -27,6 +25,15 @@ switch(now.getDay()){
         break;
     case 3: 
         console.log("수");
+        break;
+    case 4: 
+        console.log("목");
+        break;
+    case 5: 
+        console.log("금");
+        break;
+    case 6: 
+        console.log("토");
         break;
 }    
 

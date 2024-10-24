@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <!--1. 인라인 이벤트 모델 -->
+    <button onclick="console.log(this.innerText)">인라인</button>
+    <!-- 여기서 this는 버튼 태그 -->
+    <button>기본</button>
+    <!-- 외부 스크립트는 head에 -->
+     <!-- 나의 스크립트는 body에 -->
+    <script>
+        // 2. 기본 이벤트 모델 
+        const btn = document.querySelector('button:nth-child(2)'); //head에 있었으면 null이 됨..
+        btn.onclick = function() {
+            console.log(this.innerText);         
+        }
+        btn.onclick = function() {
+            alert(this.innerText);
+            this.onclick = null;//1번만 실행하고 싶을 때 인라인도 마찬가지로 null
+        } //이벤트 핸들러를 덮어 씀 1개밖에 실행이 안됨
+
+        //2. 표준 이벤트 모델(추천) -> 얘는 dom을 가져와서 제거해야함(removeeventlistner)
+
+        const fn = function(e) { //e는 i든 그냥 첫 파라미터는 event임
+            console.log(event === e); //event : 이벤트발생시점에 필요한 애들
+            //event.target == this == btn
+            console.log(this.innerText);
+            btn.removeEventListener('click', fn); //제거를 위해 이름있는 함수를 써야함
+        } //동적바인딩의 예시 fn이 fn안에있는...???
+        //건너뛰었다가 이벤트발생시점으로 유예됨..런타임..
+        btn.addEventListener('click', fn);
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        form {text-align: center; max-width: 1024px; margin: 0 auto;}
+        select {padding: 8px;}
+    </style>
+    <script>
+        //하위재료부터 만들어야함
+        window.onload = function() {
+            function creationNode() {
+                const form = document.createElement("form");
+                const h3 = document.createElement("h3");
+                const h3Txt = document.createTextNode("생년월일 입력")
+                const div1 = document.createElement("div");
+                const div2 = document.createElement("div");
+                const btn = document.createElement('button');
+                const btnTxt = document.createTextNode('확인');
+                const hr = document.createElement('hr');
+        
+                h3.appendChild(h3Txt);
+                btn.appendChild(btnTxt);
+                div2.appendChild(btn);
+        
+                form.appendChild(h3);
+    
+                div1.appendChild(selectStr(1900, 2024, 'year', true));
+                div1.appendChild(selectStr(1, 12, 'month', false, '월'));
+                div1.appendChild(selectStr(1, 30, 'date'));
+                form.appendChild(div1);
+    
+    
+                form.appendChild(hr);
+                form.appendChild(div2);
+        
+                document.body.appendChild(form);
+    
+                function selectStr(start, end, name, flag, prefix = '') { // ''없으면 undefined 
+                    const select = document.createElement("select");
+                    select.name = name;
+                    for(let i = start; i<= end; i++) {
+                        const tmpTxt = document.createTextNode(i + prefix)
+                        const tmpNode = document.createElement("option");
+                        prefix && (tmpNode.value = i);
+                        end-30 == i && (tmpNode.selected = true);
+                        tmpNode.appendChild(tmpTxt);
+                        select.appendChild(tmpNode);
+                    }
+                    return select;
+                }
+            }
+            creationNode();
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        <h3>생년월일 입력</h3>
+        <div>
+            <select>
+                <option value="2023">2023</option>
+                <option value="2024" selected>2024</option>
+            </select>
+            <select>
+                <option value="1">jaunary</option>
+                <option>february</option>
+                <option>march</option>
+            </select>
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+        <hr>
+        <div>
+            <button>확인</button>
+        </div>
+    </form>
+    <h3> 이 구간 이후는 동적생성임</h3>
+
+</body>
+</html>

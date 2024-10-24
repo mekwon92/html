@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #box {width: 1024px; height: 500px; border: 1px solid; margin: 0 auto; position: relative;}
+        #vertical {height: 500px; width: 1px; background-color: grey; position: absolute;}
+        #horizontal {height: 1px; width: 1024px; background-color: grey; position: absolute;}
+        h3 {text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="vertical"></div>
+        <div id="horizontal"></div>
+    </div>
+    <h3>x : 0, y : 0</h3>
+    <script>
+        document.querySelector("#box").addEventListener("mousemove",function(e){
+            console.log(e);
+            document.querySelector("h3").innerHTML = `x : ${e.offsetX}, y : ${e.offsetY}`;
+            document.querySelector("#vertical").style.left = e.offsetX + 'px'; //px 꼭 붙여줘야함..
+            document.querySelector("#horizontal").style.top = e.offsetY + 'px';
+        })
+    </script>
+</body>
+</html>

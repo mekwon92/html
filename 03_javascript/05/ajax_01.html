@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- https://teserre.tistory.com/7 -->
+<!--자바 애플릿 : 플러그인. 위젯같은거 ..스윙, jdk 클라이언트에서 동작 : 별로임(종료) -->
+<!-- 서블릿 : 서버에서 동작  xml : 서버 송수신에 사용 -->
+<!-- 동기 : 페이지 전환 -->
+<!-- 비동기 : 사용자는 느끼지 못하게 통신하는것. 사용자경험 향상 ajax -->
+<!-- ajax : 결과페이지 xml 파일로부터 갖고옴 원래는 db-->
+<!-- ajax : 클라이언트측 xml : 서버측 -->
+<!-- client->server : 요청(request), server->client : 응답(response) -->
+<!-- 직렬화 : 바이너리데이터, xml이랑 json은 문자열데이터???? -->
+<!-- 
+readyState
+ 0 : send 전 
+ 1 : 요청 중 
+ 2 : 요청 완료 (서버에서 응답 생성 중)
+ 3 : 응답 중
+ 4 : 응답 완료
+ 
+Server Status
+200 성공
+404 Not Found(client 귀책)
+401 권한없음 
+403 진입불가
+
+ 200 - 4 : 성공
+ -->
+
+<!-- rss -->
+<!-- 무조건 선언을 적어야 한다. xml은 주석있으면 안됨--> 
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        // ns:namespace <student:name> name태그의 namespace가 student
+
+        // XmlHttpRequest 객체 생성
+        const xhr = new XMLHttpRequest();
+
+        //method(대문자), url, 비동기여부
+        xhr.open('GET', 'student.xml');
+        xhr.send(); // 비동기 : 뭐가 먼저 응답올지 모름. 순차처리, 콜백지옥 발생가능?
+
+        xhr.onload = function() {
+            // 통신성공 여부
+            console.log(xhr);
+            if(xhr.status === 200 && xhr.readyState == 4){
+                // console.log(xhr.response, typeof xhr.response); //string타입이라 parsing해야함
+                const xmlString = xhr.response;
+                const xmlParser = new DOMParser();
+                const xmlDoc = xmlParser.parseFromString(xmlString,"text/xml");
+                console.log(xmlDoc);
+                const students = xmlDoc.getElementsByTagName("student");
+
+                let str = ""
+                for(let i = 0; i < students.length; i++){
+                    str += "<tr>"
+                    str += `<td>${students[i].querySelector("no").textContent}</td>`
+                    str += `<td>${students[i].querySelector("name").textContent}</td>`
+                    str += `<td>${students[i].querySelector("score").textContent}</td>`
+                    str += "</tr>"
+                }
+                console.log(str);
+                document.querySelector("table").innerHTML += str;
+            }
+            else {
+                console.log('ajax 실패');
+            }
+        }
+
+     </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>학번</th>
+            <th>이름</th>
+            <th>점수</th>
+        </tr>
+    </table>
+    
+</body>
+</html>
