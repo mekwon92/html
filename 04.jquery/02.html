@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        // $(함수) >> ready시점에 하게될 이벤트 핸들러
+        // $(문자열) >> selector를 활용 jQuery Object
+        // $(객체) >> 해당 객체를 jQuery Object화
+        $(function(){ //바닐라랑 제이쿼리 혼용해서도 씀
+            const text = document.getElementById("text");
+            text.style.color = 'blue';
+
+            $(text).css('color','green'); 
+            //제이쿼리 오브젝트는 자체 배열로 관리됨, 적용함수는 자체적인 이터레이터. 순환됨..?
+            //오류가 안나는 이유도 0인 배열이 되는거니까 문제가없다고 판단하는것..?
+
+            $(text)[0].style.color = 'red'; //다시 바닐라로 간다!
+
+            console.log($("p").length);
+            $("p").css('font-size', function(i, j) {
+                console.log(i, j);
+                return i % 2 ? '32px' : j;
+            })
+        })
+
+        // getter $("p").css(문자열) : 정보를 문자열로 나타냄
+
+        // 적용
+        // setter $("p").css(문자열, 문자열) 
+        // setter $("p").css(문자열, 함수) 
+        // setter $("p").css(객체) 키밸류쌍 키 : color 밸류 : red .. 여러속성을 한꺼번에 지정할수있음. 
+    </script>
+</head>
+<body>
+    <p id="text">헬로</p>
+    <p>가나다라</p>
+    <p>가나다라</p>
+    <p>가나다라</p>
+</body>
+</html>

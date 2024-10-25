@@ -5,6 +5,14 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table, th, td {border: 1px solid #222;}
+        th {border-bottom: 3px solid #222;}
+        table {border-collapse: collapse; margin : 0 auto;}
+        th, td {padding: 25px; text-align: center;}
+        tr > :first-child {color: red;}
+        tr > :last-child {color: blue;}
+    </style>
     <script>
         const now = new Date();
 
@@ -53,14 +61,6 @@
         //자식 입장에서의 부모. 나를 연 사람의 객체.
         window.opener
     </script>
-    <style>
-        table, th, td {border: 1px solid #222;}
-        th {border-bottom: 3px solid #222;}
-        table {border-collapse: collapse; margin : 0 auto;}
-        th, td {padding: 25px; text-align: center;}
-        tr > :first-child {color: red;}
-        tr > :last-child {color: blue;}
-    </style>
 </head>
 <body>
     <!-- <div id ="cal"></div>

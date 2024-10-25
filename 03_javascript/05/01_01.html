@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .color-red {color: red;}
+    </style>
+    <script>
+        window.onload = function() {
+            //요소 추가
+            const p = document.createElement('p');
+            const txt = document.createTextNode('hello world');
+            p.appendChild(txt);
+
+            //속성 추가
+            p.id = 'myP';
+            p.className = 'color-red';
+            p.title = '동적생성태그';
+            p.setAttribute('data-no', 1);
+
+            //속성 삭제
+            delete p.title;
+            p.removeAttribute('date-no');
+
+            document.body.appendChild(p);
+
+            const img = document.createElement("img");
+            img.src = 'https://octapi.lxzin.com/imageBlockProp/image/202210/11/720/0/fb874341-3c82-4785-8ef9-1ffd0a558cdd.jpg';
+
+            document.querySelector("body").appendChild(img);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        $.noConflict(); // $는 jQuery가 아니라 그냥 $가 된다(다른라이브러리랑 충돌할거같을때 이렇게 사용함 )
+        
+
+        console.log(jQuery, typeof jQuery, jQuery === $);
+        console.log($, typeof $);
+        //즉시실행함수를 통해 전역변수를 재정의할 수도있고 숨길수도있고
+        (function($) { //스코프를 통해 namespace를 지키는 방법...
+            $(function() {
+                $("p") //setter는 래핑된 p태그를 반환한다
+                .css({color :'red', "text-decoration" : 'underline'}) //color는 객체라서 따옴표안씀?
+                .click(function() {
+                    alert($(this).text());
+                })
+                .hover(function() {
+                    $(this).css('background','orange')
+                }, function() {
+                    $(this).css('background','transparent')
+                })
+            })
+        })(jQuery);
+
+        jQuery("p").css("border", "1px solid black");
+        //이건 처리가 안됨
+
+        window.onload = function() {
+            jQuery("p").css("border", "1px solid black"); //이렇게 해야 처리가능
+        }
+        // 제이쿼리에 맞게 쓰는법 3가지
+        jQuery(document).ready(function() {
+            console.log(1);
+        })
+        jQuery().ready(function(){
+            console.log(2); 
+        })
+        jQuery(function() { //보통 이렇게 씀
+            console.log(3);
+        })
+    </script>
+</head>
+<body>
+    <p>hello jQuery</p>
+    <p>hello jQuery</p>
+    <p>hello jQuery</p>
+    <p>hello jQuery</p> 
+    <!-- 제이쿼리는 4개에 다 반영됨 -->
+</body>
+</html>

@@ -22,35 +22,13 @@
 
             const colors = ['red', 'blue', 'green'];
             for(const key in list2) { // list2의 9가지 프로퍼티.. 9번 돈다..
-                console.log(key, list2[key]);
+                console.log(key, ':::',list2[key]);
                 if(list2[key].style) // 속성이 style을 가질수있는지? of로 하면 필요없음?
                 list2[key].style.color = colors[key];
             }
-            // 일반 엘리먼트 생성
-            const p = document.createElement("p");
-            const txt = document.createTextNode("hello world");
-            p.appendChild(txt);
-            p.id = 'myP'
-            p.className = 'color-red';
-            p.title = '동적 생성 태그'
-            // p['title'] 기본값이 있음
-            p[data-no] = 1; // 적용이 안됨......
-            p.setAttribute('data-no', 1); //이런식으로 적용
-            
-            delete p.title; //기본 속성 삭제
-            p.removeAttribute('data-no'); // 속성 제거
-
-            list1.appendChild(p);
-
-            const img = document.createElement("img");
-            img.src = 'https://octapi.lxzin.com/imageBlockProp/image/202210/11/720/0/fb874341-3c82-4785-8ef9-1ffd0a558cdd.jpg';
-
-            document.querySelector("body").appendChild(img);
+        
         }
     </script>
-    <style>
-        .color-red {color:red;}
-    </style>
 </head>
 <body>
     <div id = 'box1'>

@@ -2,8 +2,14 @@
 // https://armadillo-dev.github.io/es6/javascript/array-methods/
 
 // filter(predicate) : 주어진 조건에 따라 필터링하여 새로운 배열을 생성
+
+// 배열요소 순회
 // map(callbackfn) : 배열의 각 요소를 변환하여 새로운 배열을 생성
+//                   
 // foreach(callbackfn) : 배열의 각 요소에 대해 주어진 함수를 실행
+//                       따로 return하는 값이 없다(함수에 할당하면 undefined)
+//                       변수에 할당하기 보다는 반복문이나 조건문과 같이 그냥 바로 호출되는 것이 일반적
+
 
 const arr = [10,20,30,40,50];
 

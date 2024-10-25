@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- 동적인건 시점때문에 빡세다; -->
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- 고정너비픽셀인데 반응형 container 플로이드? mx auto 장착-->
+    <div class="container">
+        <!-- 우측으로 감(bootstrap) -->
+        <div class="text-end my-3">
+            <button class="btn btn-primary">삭제</button>
+            <!-- https://www.w3schools.com/bootstrap5/bootstrap_buttons.php -->
+            <button class="btn btn-danger d-none" disabled>확인</button>
+            <!-- d-block, d-inline 처럼 쓰임 -->
+        </div>
+        <ul>
+            <!-- ctrl+f >> replace All을 이용해 고칠수도 있음 ctrl+alt로 커서확장해도 됨 -->
+            <li class="form-check border border-0 border-bottom border-5 border-info mb-3"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate text-center"><strong>제목</strong></p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">체포·구속·압수 또는 수색을 할 때에는 적법한 절차에 따라 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 다만, 현행범인인 경우와 장기 3년 이상의 형에 해당하는 죄를 범하고 도피 또는 증거인멸의 염려가 있을 때에는 사후에 영장을 청구할 수 있다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. 국군은 국가의 안전보장과 국토방위의 신성한 의무를 수행함을 사명으로 하며, 그 정치적 중립성은 준수된다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">한 회계연도를 넘어 계속하여 지출할 필요가 있을 때에는 정부는 연한을 정하여 계속비로서 국회의 의결을 얻어야 한다. 헌법재판소는 법률에 저촉되지 아니하는 범위안에서 심판에 관한 절차, 내부규율과 사무처리에 관한 규칙을 제정할 수 있다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다. 연소자의 근로는 특별한 보호를 받는다. 감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한 사항은 법률로 정한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">모든 국민은 보건에 관하여 국가의 보호를 받는다. 법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 위원은 정당에 가입하거나 정치에 관여할 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국회는 법률에 저촉되지 아니하는 범위안에서 의사와 내부규율에 관한 규칙을 제정할 수 있다. 대통령의 임기연장 또는 중임변경을 위한 헌법개정은 그 헌법개정 제안 당시의 대통령에 대하여는 효력이 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 국회는 의장 1인과 부의장 2인을 선출한다. 국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국회의원은 그 지위를 남용하여 국가·공공단체 또는 기업체와의 계약이나 그 처분에 의하여 재산상의 권리·이익 또는 직위를 취득하거나 타인을 위하여 그 취득을 알선할 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국정감사 및 조사에 관한 절차 기타 필요한 사항은 법률로 정한다. 선거운동은 각급 선거관리위원회의 관리하에 법률이 정하는 범위안에서 하되, 균등한 기회가 보장되어야 한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">모든 국민은 양심의 자유를 가진다. 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국회는 국정을 감사하거나 특정한 국정사안에 대하여 조사할 수 있으며, 이에 필요한 서류의 제출 또는 증인의 출석과 증언이나 의견의 진술을 요구할 수 있다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">신체장애자 및 질병·노령 기타의 사유로 생활능력이 없는 국민은 법률이 정하는 바에 의하여 국가의 보호를 받는다. 헌법재판소는 법관의 자격을 가진 9인의 재판관으로 구성하며, 재판관은 대통령이 임명한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">군인·군무원·경찰공무원 기타 법률이 정하는 자가 전투·훈련등 직무집행과 관련하여 받은 손해에 대하여는 법률이 정하는 보상외에 국가 또는 공공단체에 공무원의 직무상 불법행위로 인한 배상은 청구할 수 없다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">제1항의 탄핵소추는 국회재적의원 3분의 1 이상의 발의가 있어야 하며, 그 의결은 국회재적의원 과반수의 찬성이 있어야 한다. 다만, 대통령에 대한 탄핵소추는 국회재적의원 과반수의 발의와 국회재적의원 3분의 2 이상의 찬성이 있어야 한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">사면·감형 및 복권에 관한 사항은 법률로 정한다. 헌법재판소 재판관은 정당에 가입하거나 정치에 관여할 수 없다. 국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다. 모든 국민의 재산권은 보장된다. 그 내용과 한계는 법률로 정한다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">대통령·국무총리·국무위원·행정각부의 장·헌법재판소 재판관·법관·중앙선거관리위원회 위원·감사원장·감사위원 기타 법률이 정한 공무원이 그 직무집행에 있어서 헌법이나 법률을 위배한 때에는 국회는 탄핵의 소추를 의결할 수 있다.</p></li>
+            <li class="form-check"><input type="checkbox" class="form-check-input invisible"><p class="text-truncate">국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 의원을 제명하려면 국회재적의원 3분의 2 이상의 찬성이 있어야 한다. 대한민국은 민주공화국이다.</p></li>
+        </ul>  
+    </div>
+    <script>
+        $("button:eq(1)").click(function() {
+            $(":checkbox:gt(0):checked").parent().remove();
+            $(":checkbox").prop("checked", false);
+        });
+
+        $("button:eq(0)").click(function() {
+            $(this)
+            .text(function(i, j, k) {
+                // console.log(i, j, k);    
+                return $(this).text() == "삭제" ? "삭제취소" : "삭제";
+            })
+                .next().toggleClass("d-none");
+            // alert(this.innerText);
+            $(":checkbox").toggleClass("invisible");
+        });
+        // 접근성측면에서 click보다 change가 좋다
+        // 체크박스를 선택했을때 로그확인
+
+        function toggleConfirmBtn() {
+            const $chbox = $(":checkbox:gt(0)")//제이쿼리 래핑된 오브젝트
+            
+            // console.log($(":checkbox:checked").length);
+            // let flag1 = false;
+            // let flag2 = true;
+
+            // for(let i = 0; i < $chbox.length; i++){
+            //     // console.log($chbox[i].checked);                
+            //     if($chbox[i].checked){
+            //         flag1 = true;
+            //     }
+            //     else {
+            //         flag2 = false;
+            //     }
+            // }
+            
+            $(":checkbox:first").prop("checked",!($chbox.length - $chbox.filter(":checked").length));
+            $("button:eq(1)").prop("disabled",!($(":checkbox:checked").length));
+        }
+
+            // let flag = false;
+
+            // for(i of $chbox){
+            // flag = $chbox[i].checked;
+            // }
+            // $("button:eq(1)").prop("disabled",!flag);
+            // $(":checkbox:first").prop("checked",flag);
+
+        $(":checkbox")
+            .filter(":first")
+            .change(function(){
+                console.log("checkbox");//따옴표가없으면 변수나 함수로 인식하게됨
+                console.log(this.checked);
+                $(":checkbox").prop("checked", this.checked) //prop : boolean 속성 참거짓여부
+                toggleConfirmBtn();
+             });
+    
+        $(":checkbox:gt(0)").change(toggleConfirmBtn)
+        // 하위 체크박스 선택시 할 일 정의
+        // 단 하나의 체크라도 활성화되어 있을 경우 확인 버튼 활성화
+        // 단 하나의 체크라도 비활성화 최초의 체크박스 비활성화
+    </script>
+    <!-- 비즈니스로직 : 문서화해서 정리해야함 -->
+    <!-- getter는 하나만 나오는거라....? 순회...?-->
+</body>
+</html>

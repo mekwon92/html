@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    </script>
+</head>
+<body>
+    <button onclick="console.log(this.innerText);">인라인</button>
+    <button onclick="alert('10')">클릭</button>
+    <button>기본1</button>
+    <button id="hh">기본2</button>
+    <button>표준</button> 
+    <script>
+        function win1() {
+            console.log("1");
+        }
+        function win2() {
+            console.log("2");
+        }
+        addEventListener('load',win1);
+        addEventListener('load',win2);
+    </script>
+</body>
+</html>

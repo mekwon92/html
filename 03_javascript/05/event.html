@@ -21,11 +21,10 @@
         }
         btn.onclick = function() {
             alert(this.innerText);
-            this.onclick = null;//1번만 실행하고 싶을 때 인라인도 마찬가지로 null
+            this.onclick = null;//최초 1번만 실행하고 싶을 때 인라인도 마찬가지로 null
         } //이벤트 핸들러를 덮어 씀 1개밖에 실행이 안됨
 
-        //2. 표준 이벤트 모델(추천) -> 얘는 dom을 가져와서 제거해야함(removeeventlistner)
-
+        // 3. 표준 이벤트 모델(추천) -> 얘는 dom을 가져와서 제거해야함(removeeventlistner)
         const fn = function(e) { //e는 i든 그냥 첫 파라미터는 event임
             console.log(event === e); //event : 이벤트발생시점에 필요한 애들
             //event.target == this == btn
