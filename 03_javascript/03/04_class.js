@@ -1,7 +1,8 @@
 //생성자함수 : 프로토타입으로 재정의 해야함
-//class : 자동으로 프로토타입이 됨 es6
+//class : 메서드가 자동으로 프로토타입이 됨 es6
+//class의 메서드는 객체 기본요소로 확인 불가능함
 
-//class보다 함수 사용을 더 많이 함
+//class보다 생성자 함수를 많이 씀
 
 class Student {
     constructor(no, name, score) {
@@ -32,19 +33,21 @@ const student = new Student(1, '말똥이', 100);
 console.log(student);
 
 //get set은 필드처럼 쓰지만 실제 구조는 메서드임
-console.log(student.getName);
+console.log(student.getName); //말똥이
 student.setName = '소똥이';
-console.log(student.getName);
+console.log(student.getName); //소똥이
 
-console.log(student.no);
+console.log(student.no); // 1
 student.no = 2;
-console.log(student.no);
+console.log(student.no); // 2
 
-//프로토타입은 객체 기본요소에는 포함이 안됨
-//for in으로는 프로토타입 확인 가능
-console.log(student); // class니까 toString은 프로트타입이라 안보임
-console.log(student.toString());
+
+console.log(student); // Student { _no: 2, name: '소똥이', score: 100 }
+console.log(student.toString()); //학번 : 2
 
 for(let i in student){
-    console.log(i);   
+    console.log(i, student[i]);   
 }
+// _no 2
+// name 소똥이
+// score 100

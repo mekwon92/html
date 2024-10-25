@@ -201,9 +201,3 @@ let resultStr = decodeURIComponent(''); //URL ,URI 복호화....
 
 let obj = {x:10, y:"abcd", z:function() {}};
 // 메서드 : 객체 내에 종속된 함수
-
-
-//클래스 : 잘 안쓰긴함
-class Student {
-}
-let student = new Student();

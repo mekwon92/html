@@ -40,37 +40,3 @@ for(let i = 0 ; i < 26; i++){
 }
 console.log(s);
 console.log(s.charCodeAt(0));
-
-const arr = [10, 20, 3, 40, 5];
-// 내부적으로 문자를 비교해서 이상함...
-//  숫자영역을 위한 comperator 필요...? 콜백 필요함...
-
-arr.sort((a,b)=>a-b); // 오름차순
-
-arr.sort(function(a,b) {
-    return b-a;
-})
-
-console.log(arr);
-
-//for of:리터러블(반복할 수 있는 객체)에 사용 배열에 주로쓰임 향상for문과 동일 ES6
-//for in을 자주 씀
-
-const multi = [
-    [1,2,3,4],
-    [3,4,5],
-    [2,3,4]
-];
-
-for(let i in multi) {
-    for(let j in multi[i]){
-        console.log(multi[i][j])
-    }
-}
-
-
-for(let sub of multi) {
-    for(let value of sub){
-        console.log(value);
-    }
-}
