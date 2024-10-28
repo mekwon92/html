@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .box {width: 100px; height: 100px;}
+        .box1 {background-color: red;}
+        .box2 {background-color: blue;}
+        .box3 {background-color: green;}
+
+        .my-box {width: 300px; height: 300px; padding: 50px; margin: 100px; border: 20px solid; background-color: pink;}
+    </style>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        $(function() {
+            // addClass
+            $("button:eq(0)").click(function() {
+            //     $(".box").attr(function(i, it) {
+            //         return "box" + (i%3 + 1);
+                // }); 
+                $(".box").addClass(function(i, it) {
+                    return "box" + (i%3 +1);
+                });
+            });
+
+            // removeClass
+            $("button:eq(1)").click(function() {
+                $(".box").removeClass(function(i, it) {
+                    return "box" + (i%3 +1);
+                });
+            });
+
+            // toggleClass
+            // 상태전환용 key : toggle key (capslock, numlock)
+            $("button:eq(2)").click(function() {
+                $(".box").toggleClass(function(i, it) {
+                    return "box" + (i%3 +1);
+                });
+            });
+
+            //
+            $("button:eq(3)").click(function() {
+                $(".box").css("width", parseInt($('.box').css("width")) * 2)
+            });
+
+            console.log("width"+$(".my-box").width());
+            console.log("innerwidth"+$(".my-box").innerWidth());
+            console.log("outerwidth"+$(".my-box").outerWidth());
+            console.log("height"+$(".my-box").height());
+            console.log("innerheight"+$(".my-box").innerHeight());
+            console.log("outerheight"+$(".my-box").outerHeight());
+            
+            $(".my-box").width();
+        });
+    </script>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="btns">
+        <button>add class</button>
+        <button>remove class</button>
+        <button>toggle class</button>
+        <button>width*2</button>
+    </div>
+
+    <div class="my-box"></div>
+
+</body>
+</html>

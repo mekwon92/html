@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div {border:1px solid; padding: .5em;}
+    </style>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        let counter = 1;
+        $(function() {
+            //append :
+            $("button:eq(0)").click(function() {
+                $(".target").append(`<div data-no='${++counter}'>대상${counter}</div>`);
+            })
+            $("button:eq(1)").click(function() {
+                $(".target").prepend(`<div data-no='${++counter}'>대상${counter}</div>`);
+            })
+            $("button:eq(2)").click(function() {
+                $(".target").after(`<div data-no='${++counter}'>대상${counter}</div>`);
+            })
+            $("button:eq(3)").click(function() {
+                $(".target").before(`<div data-no='${++counter}'>대상${counter}</div>`);
+            })
+
+            $("button:eq(4)").click(function() {
+                // $(`<div data-no='${++counter}'>대상${counter}</div>`).appendTo(".target"); 
+                $("<div>").attr('data-no', ++counter).text('대상' + counter).appendTo(".target"); //이런식으로 중간중간에 넣어 사용할 수 있어짐
+                    // attr 대신 data("no", ++counter) : data는 화면상에서는 안보여주지만 getter로는 확인 가능함..동적??
+            });
+
+            //$("셀렉터").append("태그")
+
+            //$("태그").appendTo("셀렉터")
+
+
+            
+        });
+    </script>
+</head>
+<body>
+    <button>append</button>
+    <button>prepend</button>
+    <button>after</button>
+    <button>before</button>
+
+    <button>appendTo</button>
+    
+    <div>
+        <div class="target" data-no="1">대상1</div>
+    </div>
+</body>
+</html>

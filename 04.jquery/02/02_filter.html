@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+
+        //배열 대상
+        let arr = [1,2,3,4,5];
+        arr = arr.filter(function(v) {
+            return v % 2 == 1;
+        }).forEach(v => {console.log(v); return v;}); //forEach는 consumer 사용 foreach는 내부적으로 값을 반환하지않음 undefined
+        // }).map(v => {console.log(v); return v;}); //forEach는 consumer 사용 foreach는 내부적으로 값을 반환하지않음
+        console.log(arr);
+        
+        //일반객체에서도 사용가능
+
+        let obj = {x:10, y:20};
+        obj = $.map(obj, function(v, i) {
+            console.log(v, i);
+            return v;
+        }) //객체를 배열로 만들때 좋음.(유효성검증의 문자열직렬화할 때)
+        console.log(obj);
+        
+        //안됨 map is not a function
+        // obj.map(function(v, i) {
+        //     console.log(v, i);
+        // })
+
+        $(function() {
+            console.log($("div").text());
+
+            // 각 div요소내의 텍스트로 글자색 지정
+            // $("div").each(function(i, v) {
+            //     $(v).css("color", $(v).text());
+            // })
+
+            // $("button").click(function() {
+            //     $("div").text(function(i, v) {
+            //         $(this).css("color",v);
+            //     })
+            //     console.log($("div"), $("div").html()); //DOM의 innerHTML
+            //     $("body").html(function(i, item) {
+            //         return item + "<p>가나다라</p>"; 
+            //     })
+            // });
+
+            $("button.btn").click(function() {
+                // console.log($(this).next());
+                $(this).next().html(function() { //this는 button.btn(이벤트 대상 객체)
+                    return $(this).html() + `<p>문장${$(this).find("p").length+1}</p>`; 
+                    //얘가 return하는 값으로 넣겠다. 여기의 this는 next()인 div태그 
+                    // 전역변수없이 길이만 가져와서 카운트가능... callback함수때문에 this를 많이씀...
+                    // e.target&wrap해야됨..화살표함수로 쓰면.. 
+                    // tab index, event전달은 흘러가는대로 둬야함...수동제어하면안됨..
+                }) // div;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>red</div>
+    <div>green</div>
+    <div>blue</div>
+    <button>클릭</button>
+    <hr>
+    <button class="btn">클릭</button>
+    <div>
+        
+    </div>
+</body>
+</html>

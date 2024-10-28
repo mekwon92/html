@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        $(function() {
+            console.log($("div:nth-child(1)").add("div:nth-child(2)").end().text());
+            console.log($("body").children("div").addBack()); //addBack은 잘 안쓰고 end 씀
+
+            // is, hasClass, hasAttr
+            // $("div").is(".def") 
+            // $("section:has(article)") : section요소 중에 article을 하위 요소로 가지고 있는 section 요소
+            
+            console.log($("div").is(".def"));
+            $("div").each((i, item)=>{
+                console.log(i, item, $("div")[i], this); //익명함수의 this와 arrow function의 this가 다름
+            })
+            //화살표함수 this: 위로 감..?
+            // 익명 함수: 호출된 컨텍스트에 따라 this가 동적으로 바인딩됩니다.
+            // 화살표 함수: this가 상위 스코프의 this로 정적으로 바인딩됩니다.
+            
+            $("div").each(function(i, item) {
+                console.log(i, item, $("div")[i], this); 
+                console.log($(item).is(".abc"));
+            });
+
+            for(let i = 0; i < $("div").length; i++){
+                console.log($("div").eq(i).text()); //eq(i) 사용..dom?
+            }
+
+            for(let i in $("div")) {
+                if(i>=0 && i <= $("div").length) {
+                    console.log($($("div")[i]).text()); //$ 로 감싸야함??
+                }
+            }
+            // $("selector").each(할일)
+            // $.each(객체, 할일)
+
+
+
+
+
+            //익명함수 this: each의 콜백. div태그 하나하나를 위해 도는 것
+            //인터페이스를 객체로 만드는 법?
+            //
+            //
+            // 3. 추상메서드를 람다식으로 ->
+
+            $("div").each(function() {
+                // const $this = $(this);
+                // $this.click(function() {
+                //     $(this)===$this;
+                // });
+            })
+        });
+    </script>
+
+</head>
+<body>
+    <div class="abc">요소1</div>
+    <div class="def">요소2</div>
+    <div class="def">요소3</div>
+    
+</body>
+</html>
