@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .toben {width: 200px; position: absolute; left: 50%; top: 50%;}
+        </style>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        // $("selector").click(함수 or undefined) : setter 
+        // $("selector").click() : getter 실제 이벤트에 대한 강제 호출 .. (trigger:이벤트 유발)
+        // 일부러 이벤트를 유발시킬 때가 있음 연쇄적으로 발생하게 됨?
+
+        $(function() {
+       
+            $(window).keydown(function() {
+                // console.log(event);
+                const $pos = $(".toben").position();
+                
+                switch(event.keyCode){ //code보다 숫자로 된 keyCode로 하는게 좋다 (한글면에서도)
+                    case 'A'.charCodeAt(0) :
+                    case 37:
+                        $(".toben").css("left",$pos.left - 3);
+                        break;
+                    case 'W'.charCodeAt(0):    
+                    case 38:
+                        $(".toben").css("top",$pos.top - 3);
+                        break;
+                    case 'D'.charCodeAt(0):    
+                    case 39:
+                        $(".toben").css("left",$pos.left + 3);
+                        break;
+                    case 'S'.charCodeAt(0):    
+                    case 40:
+                        $(".toben").css("top",$pos.top + 3);
+                        break;
+                }
+            });
+        })
+    </script>
+    
+</head>
+<body>
+    <!-- 사실 이동은 배경을 옮기는 것이다 -->
+    <img src="https://avatar.maplestory.nexon.com/Character/180/JBBOKFLJFGMLGJBICCCECBDNDOHCGHCGOHGFJDLBPJHKPEBCJKLNOHKJGBGIJOIAMBIIGEBBIGFHBECDJBMINFPKBEDIMPACNANPBKJPOPPKAEMFLHPNCHJHFFBHBBHDCLECJPOOPBMGKFHFHJAKLMHHJOHAOIPAFJGNPBFKAEACANMBMJOKOMNIAHBBIMFCMDAKJOPLADPAINMADNEAAANPIDFPHJDGPEKDDGCOOIBOKFOBMKDMCDIKMHGICBKL.png" class="toben">
+    
+</body>
+</html>

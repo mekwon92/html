@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- https://ssl.pstatic.net/static/nid/join/m_sp_06_realname_48b1e603.png -->
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+<!-- 아이디, 비번, 이름, 이메일, 검색된 주소, 상세 주소 (주소만 비동기로 해보자) -->
+<!-- 이메일발송은 jsp 자바이용 -->
+<!-- 그리드 레이아웃을 기반으로한 컬럼분할(bs) -->
+ <!-- container wrapping부터 시작 -> 그리드 레이아웃 -->
+    <div class="container">
+        <h1 class="text-center mt-5">회원가입</h1>
+        <form name="frm" class="mx-auto col-12 col-sm-8 col-md-6 col-lg-5 col-x1-4 col-xxl-3 card p-2 mt-5">
+            <input type="text" class="form-control my-3" id="id" placeholder="아이디" name="id">
+            <input type="password" class="form-control my-3" id="pwd" placeholder="비밀번호" name="pwd">
+            <input type="text" class="form-control my-3" id="name" placeholder="이름" name="name">
+            <input type="email" class="form-control my-3" id="email" placeholder="이메일" name="email">
+            <input type="text" class="form-control my-3" id="roadAddr" placeholder="" name="roadAddr" readonly>
+            <input type="text" class="form-control my-3" id="name" placeholder="상세주소" name="name">
+            <div class="input-group my-3">
+                <input type="text" class="form-control" placeholder="도로명검색">
+                <button class="btn btn-success" type="button" id="search">검색</button>
+            </div>
+            <ul class="list-group">
+            </ul>
+
+            <button class="btn btn-primary">가입하기</button>
+        </form>
+    </div>
+    <script>
+        $("#search").click(function() {
+            const keyword = $(this).prev().val();
+            // alert(111)
+            if(!keyword) return;
+            // alert(222)
+
+            const data = { 
+                keyword,
+                confmKey : 'devU01TX0FVVEgyMDI0MTAyOTEyMTYxNTExNTE5OTc=',
+                currentPage : 1,
+                countPerPage : 100,
+                resultType : 'json'
+             };
+            console.log(data);
+            
+
+            // **dataType: 'jsonp'**는 서버에서 JSON 데이터를 JSONP 형식으로 반환하도록 설정하는 옵션입니다. 이로 인해 브라우저의 CORS 제한을 피할 수 있습니다.
+            // **crossDomain: true**는 AJAX 요청이 다른 도메인으로의 요청임을 표시하여, 브라우저가 CORS 정책을 준수하면서도 서버가 허용할 경우에만 데이터가 전송될 수 있도록 합니다.
+            //data type 응답했을때의 데이터 타입
+            //success function 파라미터 확인
+            //data : data 이름같으면 생략가능
+            $.ajax({
+                url : "https://business.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+                type : 'get',
+                data,
+                dataType : 'jsonp',
+                crossDomain : true,
+                success : function(data) {
+                    console.log(data);
+                    console.log(data.results.juso);
+
+                    let str = '';
+                    for(let i in data.results.juso) {
+                        str += `<li class="list-group-item"><a href="#" class="small">${data.results.juso[i].roadAddr}</a></li>`;
+                        // console.log(data.results.juso[i].roadAddr)
+                    }
+                    $("ul").html(str);
+                },
+                error : function(xhr, msg) {
+                    console.log(msg);
+                }
+            })
+
+            //중요(동적으로만들어졌으면 이벤트를 다시한번 줘야한다)
+
+            $("ul").on("click","a",function() {
+                $("#roadAddr").val($(this).text()); //여기의 this는 ul 위임받은 a
+                $(this).closest("ul").empty(); //a에서 가장 가까운 ul을 비움
+            })
+            
+            //콜백콜..? json인데 한번 감싸는 jsonp.. {'results':[1,2,3]}
+        });
+    </script>
+</body>
+</html>

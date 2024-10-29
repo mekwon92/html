@@ -5,36 +5,25 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        let arr = [1,2,3,4,5];
+        arr = arr.filter(function(v) {
+            return v % 2 == 1;
+        })
+
+        console.log(arr);
+
+
+    </script>
 </head>
 <body>
-    <ol>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-        <li>목록</li>
-    </ol>
-    <input> 
-    <input type="text">
-    <input>    
-</body>
-    <script>
-        $(function() {
-            $("li:nth-child(3)").css("color",'green');
-            $("li")
-                .filter("li:nth-child(4)")
-                .css("color","red")
-                .text("변경");            
-            $("li:eq(1)")
-                .css({"background":'blue',"font-size" : '2em'});
-            $("li")
-                .filter(":gt(4):not(:nth-child(7))")
-                .css("background","yellow");
-        });
-    </script>
+    <div>red</div>
+    <div>green</div>
+    <div>blue</div>
+    <button>클릭</button>
+    <hr>
+    <button class="btn">클릭</button>
+    <div>
+    </div>
+</body>    
 </html>

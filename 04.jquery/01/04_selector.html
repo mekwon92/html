@@ -5,17 +5,17 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
     <style>
         body * {border: 1px solid #222; padding: 10px; margin-top: 5px; background-color: aliceblue;}
         /* content class의 2번째 3번째 자식 */
         .content > :nth-child(2), .content > :nth-child(3) {background-color: indianred;}
     </style>
-    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
     <script>
         $(function() {
             $("button").click(function() {
                 $(this).closest(".content > div")
-                // .nextAll().fliter(":lt(2)")
+                // .nextAll().filter(":lt(2)")
                 .nextUntil(":last-child")
                 .css("background-color",'skyblue')
                 .closest(".content")

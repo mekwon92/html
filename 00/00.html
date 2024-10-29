@@ -5,47 +5,62 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .box {width: 100px; height: 100px;}
+        .box1 {background-color: red;}
+        .box2 {background-color: blue;}
+        .box3 {background-color: green;}
+    </style>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
     <script>
-        window.onload = function() {
-            const list1 = document.querySelector("#box1 > ul > li");
-            const list2 = document.querySelectorAll("#box2 > ul > li");
+       $(function() {
+        $("button:eq(0)").click(function() {
+            //     $(".box").attr(function(i, it) {
+            //         return "box" + (i%3 + 1);
+                // }); 
+                $(".box").addClass(function(index, className ) {
+                    return "box" + (index %3 +1);
+                });
+            });
 
-            console.log(list1, typeof list1, list1.toString());
-            console.log(list2, typeof list2, list2.toString());
-            list1.style.backgroundColor = 'orange';
-            list1.onclick = function() {
-                alert('hi');
-            }
+            // removeClass
+            $("button:eq(1)").click(function() {
+                $(".box").removeClass(function(i, it) {
+                    return "box" + (i%3 +1);
+                });
+            });
 
-            const colors = ['red', 'green', 'blue'];
-            // for(const key in list2){
-            //     console.log(key,':::',list2[key]);
-                
-            // }
+            // toggleClass
+            // 상태전환용 key : toggle key (capslock, numlock)
+            $("button:eq(2)").click(function() {
+                $(".box").toggleClass(function(i, it) {
+                    return "box" + (i%3 +1);
+                });
+            });
 
-            for(const key of list2) {
-                list2.style.color = colors[key];
-            }
+            //
+            $("button:eq(3)").click(function() {
+                $(".box").css("width", parseInt($('.box').css("width")) * 2)
+            });
 
             
-        }
+       })
     </script>
 </head>
 <body>
-    <div id = 'box1'>
-        <ul>
-            <!-- attribute = property -->
-            <li>내용1</li>
-            <li>내용2</li>
-            <li>내용3</li>
-        </ul>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
     </div>
-    <div id = 'box2'>
-        <ul>
-            <li>내용1</li>
-            <li>내용2</li>
-            <li>내용3</li>
-        </ul>
+    <div class="btns">
+        <button>add class</button>
+        <button>remove class</button>
+        <button>toggle class</button>
+        <button>width*2</button>
     </div>
 </body>
 </html>

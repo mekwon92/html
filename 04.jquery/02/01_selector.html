@@ -8,42 +8,46 @@
     <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
     <script>
         $(function() {
+
             console.log($("div:nth-child(1)").add("div:nth-child(2)").end().text());
-            console.log($("body").children("div").addBack()); //addBack은 잘 안쓰고 end 씀
+            console.log($("body").children("div").addBack().text()); //addBack은 잘 안쓰고 end 씀
+
 
             // is, hasClass, hasAttr
-            // $("div").is(".def") 
+            // $("div").is(".def") : div요소에 def라는 클래스의 존재여부 (boolean)
             // $("section:has(article)") : section요소 중에 article을 하위 요소로 가지고 있는 section 요소
             
-            console.log($("div").is(".def"));
-            $("div").each((i, item)=>{
-                console.log(i, item, $("div")[i], this); //익명함수의 this와 arrow function의 this가 다름
-            })
-            //화살표함수 this: 위로 감..?
-            // 익명 함수: 호출된 컨텍스트에 따라 this가 동적으로 바인딩됩니다.
-            // 화살표 함수: this가 상위 스코프의 this로 정적으로 바인딩됩니다.
-            
-            $("div").each(function(i, item) {
-                console.log(i, item, $("div")[i], this); 
+            console.log($("div").is(".def"));//true
+
+             // $("selector").each(할일)
+            // $.each(객체, 할일)
+            $("div").each(function(i, item) { //true false false
                 console.log($(item).is(".abc"));
             });
 
+            //익명함수의 this와 arrow function의 this가 다름   
+
+            // 익명 함수: 호출된 컨텍스트에 따라 this가 동적으로 바인딩 (this : <div class="abc">요소1</div>)
+            $("div").each(function(i, item) {
+                console.log(i, item, $("div")[i], this);
+            }); 
+
+            // 화살표 함수: this가 상위 스코프의 this로 정적으로 바인딩 (#document)
+            $("div").each((i, item)=>{
+                console.log(i, item, $("div")[i], this); 
+            })
+
+
             for(let i = 0; i < $("div").length; i++){
-                console.log($("div").eq(i).text()); //eq(i) 사용..dom?
+                console.log($("div").eq(i).text()); //eq(i) 사용
             }
 
             for(let i in $("div")) {
-                if(i>=0 && i <= $("div").length) {
+                if(i >= 0 && i <= $("div").length) {
                     console.log($($("div")[i]).text()); //$ 로 감싸야함??
                 }
             }
-            // $("selector").each(할일)
-            // $.each(객체, 할일)
-
-
-
-
-
+           
             //익명함수 this: each의 콜백. div태그 하나하나를 위해 도는 것
             //인터페이스를 객체로 만드는 법?
             //
@@ -51,11 +55,36 @@
             // 3. 추상메서드를 람다식으로 ->
 
             $("div").each(function() {
-                // const $this = $(this);
-                // $this.click(function() {
-                //     $(this)===$this;
-                // });
+                const $this = $(this);
+                $this.click(function() {
+                    $(this)===$this;
+                });
             })
+                // 각 this의 의미
+                // 첫 번째 this (outer function):
+
+                // $("div").each(function() { ... }) 내의 function에서의 this는 현재 반복 중인 div 요소를 가리킵니다.
+                // jQuery의 .each() 메서드는 내부의 콜백 함수에 대한 this를 현재 처리하고 있는 요소로 설정합니다.
+                // 예를 들어, 첫 번째 div 요소를 처리할 때 this는 첫 번째 div를 가리킵니다.
+                // const $this = $(this);:
+
+                // this를 jQuery 객체로 감싸 $this라는 변수를 정의합니다. 이 변수는 현재 반복 중인 div 요소에 대한 jQuery 객체를 나타냅니다.
+                // $this를 사용하면 여러 jQuery 메서드(예: .click(), .css(), .text())를 호출할 수 있습니다.
+                // 두 번째 this (inner function):
+
+                // $this.click(function() { ... }) 내의 function에서의 this는 이벤트 핸들러에 의해 호출된 요소를 가리킵니다.
+                // 이 경우, $(this)는 클릭 이벤트가 발생한 특정 div 요소를 가리킵니다. 즉, 사용자가 클릭한 div 요소를 참조하게 됩니다.
+                // 비교
+                // this (outer function)와 this (inner function)는 서로 다른 대상을 가리킵니다.
+                // outer function의 this: 현재 반복 중인 div 요소 (예: 첫 번째, 두 번째 div)
+                // inner function의 this: 클릭한 div 요소 (이벤트가 발생한 div)
+                // 동작 설명
+                // 사용자가 div 요소를 클릭하면, 클릭한 요소에 대해 이벤트 핸들러가 실행됩니다.
+                // 핸들러 내부의 $(this)는 클릭한 div를 가리키고, $this는 현재 반복 중인 div 요소를 가리킵니다.
+                // $(this) === $this는 두 객체가 동일한지를 비교합니다. 그러나 이 표현식은 클릭한 요소와 현재 반복 중인 요소가 같은 경우에만 true가 됩니다.
+                // 결론
+                // 외부 함수의 this는 .each() 메서드에 의해 설정된 현재 요소를 가리키고, 내부 함수의 this는 이벤트 핸들러에 의해 호출된 현재 클릭된 요소를 가리킵니다.
+                // 이 패턴은 jQuery에서 자주 사용되며, this의 동작을 이해하는 것은 DOM 조작 및 이벤트 처리를 효율적으로 하는 데 매우 중요합니다.
         });
     </script>
 

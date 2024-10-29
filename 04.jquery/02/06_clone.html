@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <!-- clone : 돔 복제 -->
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        $(function() {
+            $("h2").click(function() {
+                $(this).clone(true).appendTo("body");
+                // 파라미터 기본값 : false
+                // true : 이벤트도 복사하는 겉복사
+                // 인자 여러개주면 deep copy 
+            })
+        });
+    </script>
+</head>
+<body>
+    <!-- 버블링 -->
+    <h2>클릭</h2>
+    <div onclick="alert(1)">
+        <div onclick="alert(2)">
+            <div onclick="alert(3)">
+                <h3 onclick="alert(4)">클릭 미</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

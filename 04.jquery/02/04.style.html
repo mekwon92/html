@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .my-box {width: 300px; height: 300px; padding: 50px; margin: 100px; border: 20px solid; background-color: pink;}
+    </style>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
+    <script>
+        $(function() {
+       
+            
+            console.log("width"+$(".my-box").width());
+            console.log("innerwidth"+$(".my-box").innerWidth());
+            console.log("outerwidth"+$(".my-box").outerWidth());
+            console.log("height"+$(".my-box").height());
+            console.log("innerheight"+$(".my-box").innerHeight());
+            console.log("outerheight"+$(".my-box").outerHeight());
+            
+            $(".my-box").width();
+        });
+    </script>
+</head>
+<body>
+
+    <div class="my-box"></div>
+
+</body>
+</html>

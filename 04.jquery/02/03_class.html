@@ -21,8 +21,8 @@
             //     $(".box").attr(function(i, it) {
             //         return "box" + (i%3 + 1);
                 // }); 
-                $(".box").addClass(function(i, it) {
-                    return "box" + (i%3 +1);
+                $(".box").addClass(function(index, className) {
+                    return "box" + (index%3 +1);
                 });
             });
 
@@ -45,6 +45,7 @@
             $("button:eq(3)").click(function() {
                 $(".box").css("width", parseInt($('.box').css("width")) * 2)
             });
+
 
             console.log("width"+$(".my-box").width());
             console.log("innerwidth"+$(".my-box").innerWidth());

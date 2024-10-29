@@ -7,14 +7,21 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js'></script>
     <script>
-
-        //배열 대상
         let arr = [1,2,3,4,5];
+        
         arr = arr.filter(function(v) {
             return v % 2 == 1;
-        }).forEach(v => {console.log(v); return v;}); //forEach는 consumer 사용 foreach는 내부적으로 값을 반환하지않음 undefined
-        // }).map(v => {console.log(v); return v;}); //forEach는 consumer 사용 foreach는 내부적으로 값을 반환하지않음
-        console.log(arr);
+        }).forEach(v => {console.log(v); return v;}); 
+        //forEach는 consumer 사용 foreach는 내부적으로 값을 반환하지않음 undefined
+        console.log(arr); //  undefined
+
+        let arr2 = [1,2,3,4,5];
+
+        arr2 = arr2.filter(function(v) {
+            return v % 2 == 1;
+        }).map(v => {console.log(v); return v;});
+        console.log(arr2); // [1, 3, 5]
+       
         
         //일반객체에서도 사용가능
 
@@ -25,29 +32,33 @@
         }) //객체를 배열로 만들때 좋음.(유효성검증의 문자열직렬화할 때)
         console.log(obj);
         
-        //안됨 map is not a function
-        // obj.map(function(v, i) {
-        //     console.log(v, i);
-        // })
+        // 안됨 map is not a function
+        // obj가 jQuery 객체로 변환되었을 경우에는 표준 JavaScript 배열의 메서드인 map을 사용할 수 없게 됨
+        obj.map(function(v, i) { // value index 순서
+            console.log(v, i);
+        })
 
         $(function() {
             console.log($("div").text());
 
             // 각 div요소내의 텍스트로 글자색 지정
-            // $("div").each(function(i, v) {
-            //     $(v).css("color", $(v).text());
-            // })
+            $("div").each(function(i, v) { // index value 순서
+                $(v).css("color", $(v).text());
+            })
 
-            // $("button").click(function() {
-            //     $("div").text(function(i, v) {
-            //         $(this).css("color",v);
-            //     })
-            //     console.log($("div"), $("div").html()); //DOM의 innerHTML
-            //     $("body").html(function(i, item) {
-            //         return item + "<p>가나다라</p>"; 
-            //     })
-            // });
+            $("button").click(function() {
+                $("div").text(function(i, v) {
+                    $(this).css("color",v);
+                })
+            //  HTML 요소를 선택하고, 해당 요소의 내용을 변경
+                console.log($("div"), $("div").html()); //DOM의 innerHTML
+                $("body").html(function(i, item) {
+                    console.log(i, item);
+                    return item + "<p>가나다라</p>"; 
+                })
+            });
 
+            
             $("button.btn").click(function() {
                 // console.log($(this).next());
                 $(this).next().html(function() { //this는 button.btn(이벤트 대상 객체)
