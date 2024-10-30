@@ -19,8 +19,16 @@
     </script>
 </head>
 <body>
-    <!-- 버블링 -->
     <h2>클릭</h2>
+    
+    
+    <div onclick="alert('상위 div 클릭됨')">  <!-- 상위 요소에 이벤트 핸들러가 있음 -->
+        <div>  <!-- 중간 요소, 이벤트 핸들러 없음 -->
+            <h3 onclick="alert('h3 클릭됨')">클릭 미2</h3>  <!-- 하위 요소에 이벤트 핸들러가 있음 -->
+        </div>
+    </div>
+    
+    <!-- 버블링 확인  -->
     <div onclick="alert(1)">
         <div onclick="alert(2)">
             <div onclick="alert(3)">

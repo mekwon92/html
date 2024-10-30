@@ -12,7 +12,6 @@
     <script>
         let counter = 1;
         $(function() {
-            //append :
             $("button:eq(0)").click(function() {
                 $(".target").append(`<div data-no='${++counter}'>대상${counter}</div>`);
             })
@@ -25,7 +24,6 @@
             $("button:eq(3)").click(function() {
                 $(".target").before(`<div data-no='${++counter}'>대상${counter}</div>`);
             })
-
             $("button:eq(4)").click(function() {
                 // $(`<div data-no='${++counter}'>대상${counter}</div>`).appendTo(".target"); 
                 $("<div>").attr('data-no', ++counter).text('대상' + counter).appendTo(".target"); //이런식으로 중간중간에 넣어 사용할 수 있어짐

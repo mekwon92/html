@@ -22,9 +22,9 @@
             }).mouseover(function() {
                 $(this).after("<h3>mouseover</h3>")
             });
-
+            
             $("textarea").keydown(function() {
-                $(".keydown").text('keydown' + $(this).val().length);
+                $(".keydown").text('keydown'+$(this).val().length);
             });
             
             $("textarea").keypress(function() {
