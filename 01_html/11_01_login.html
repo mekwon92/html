@@ -10,10 +10,44 @@
     </style>
 </head>
 <body>
-    <form>
-    <!-- 
-    <form novalidate> : 여기서 제공하는 유효성을 사용하지 않고 내가 만들겠다. 혹은 검사하지않겠다. (boolean 속성임)
+    <form action="#" method="post">
+        <!-- 
+    <form> : 입력한 값들을 처리하는 프로그램으로 전송할 때 사용.
+    <fieldset> : 양식 요소들을 그룹화할 때 사용. <legend>를 자식 요소로 포함
+        일반적으로 fieldset이 form 안에 포함됨
+    
+    <form>의 속성
+    action : 작성한 값을 처리하는 프로그램의 주소 지정(URL)
+    method : 서버 프로그램에 어떤 방식으로 전달할 지 정의
+        전달 방식
+        - get : 조회(기본)
+        - post : 전송(특수목적용)
+        - put : 수정
+        - delete : 삭제
     -->
+        <fieldset>
+            <legend>로그인</legend>
+            <p>ID : <input type="text" name="uid" id="uid"></p>
+            <p>PW : <input type="password" name="upw" id="upw"></p>
+            <button type="submit">로그인</button>
+        </fieldset>
+    </form>
+    <form>
+        <table>
+            <tr>
+                <th><label for="id">아이디</label></th>
+                <td><input type="text" name="id" id="id" tabindex="1"></td>
+                <!-- tabindex는 음수가 오는게 좋음 -->
+                <td rowspan="2"><button tabindex="3">로그인</button></td>
+            </tr>
+            <tr>
+                <td><label for="pw">비밀번호</label></td>
+                <td><input type="password" name="pw" id="pw" tabindex="2"></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+    <!-- <form novalidate> : 여기서 제공하는 유효성을 사용하지 않고 내가 만들겠다. 혹은 검사하지않겠다. (boolean 속성임) -->
         <fieldset>
             <legend>type 속성</legend>
             <!-- 
@@ -29,8 +63,6 @@
                     다양한 특수문자나 한글 사용가능
             id : html 내에서 고유하게 식별하는데 사용
             title : 요소에 대한 추가정보 제공(툴팁)
-
-
             placeholder : 사용자가 입력해야할 예시나 힌트 제공
             required : 반드시 값을 입력받아야 함
             autocomplete : 기본값 on (off 시 자동완성 안됨)
@@ -59,6 +91,20 @@
 
             <button>전송</button>
         </fieldset>
-    </form>    
+    </form>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>회원가입</legend>
+            <p>가입목적 : <br><textarea cols="50" rows="10"></textarea></p>
+            <p>전화번호 :
+            <select>
+                <option>지역번호</option>
+                <option selected>02</option>
+                <option>053</option>
+                <option>062</option>
+            </select>
+            <input type="text">
+        </fieldset>   
+    </form>
 </body>
 </html>
