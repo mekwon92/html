@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" placeholder="도로명검색">
                 <button class="btn btn-success" type="button" id="search">검색</button>
             </div>
-            <ul class="list-group">
+            <ul class="list-group search-result-wrap">
             </ul>
 
             <button class="btn btn-primary">가입하기</button>
@@ -72,7 +72,7 @@
                         str += `<li class="list-group-item"><a href="#" class="small">${data.results.juso[i].roadAddr}</a></li>`;
                         // console.log(data.results.juso[i].roadAddr)
                     }
-                    $("ul").html(str);
+                    $("ul.search-result-wrap").html(str);
                 },
                 error : function(xhr, msg) {
                     console.log(msg);
@@ -81,8 +81,8 @@
 
             //중요(동적으로만들어졌으면 이벤트를 다시한번 줘야한다)
 
-            $("ul").on("click","a",function() {
-                $("#roadAddr").val($(this).text()); //여기의 this는 ul 위임받은 a
+            $("ul.search-result-wrap").on("click","a",function() {
+                $("#roadAddr").val($(this).text().trim()); //여기의 this는 ul 위임받은 a
                 $(this).closest("ul").empty(); //a에서 가장 가까운 ul을 비움
             })
             

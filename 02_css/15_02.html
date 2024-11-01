@@ -3,31 +3,47 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>그라데이션</title>
+    <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        
-        /* 
-            linear-gradient(방향, 컬러스톱, [컬러스톱, ...])
-            to right
-        */
-        body {background: linear-gradient(90deg, white 90%, black);}
-        div:not(.multi-background) {height: 50px;}
-        .lenear-repeat {background: repeating-linear-gradient(45deg, white 20px, black 40px);}
-        .lenear-repeat-pattern {background: repeating-linear-gradient(45deg, white 0, white 20px, black 20px, black 40px);}
-        .radial {height: 200px; width: 100px; background: radial-gradient(circle at 10px 50%, white,blue);}
-        .multi-background {width: 150px;}
-        /* 너비는 높이는 부모를..? */
-        .multi-background div {/*width: 150px;*/ height: 150px; border: 1px solid;}
+        h1, p, ul {margin: 0; padding: 0;}
+        li {list-style: none;}
+        .gallery { padding: 0;}
+        .gallery li {
+            float: left;
+            width: 150px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        .gallery h3 {padding: 5px;}
+        .gallery li h3 {background: #daa;}
+        .gallery li+li h3 {background: #abc;}
+        .gallery li+li+li h3 {background: #eba;}
+        .gallery li+li+li+li h3 {background: #aa7;}
+        .gallery li p {font-size: 14px; padding: 10px; text-align: justify;}
+
     </style>
 </head>
 <body>
-    <div class="lenear-repeat"></div>
-    <div class="lenear-repeat-pattern"></div>
-    <div class="radial"></div>
-
-    <div class="multi-background">
-        <div></div>
-    </div>
+    <h1>나의 아름다운 정원</h1>
+    <p>일까...?<br>것이다</p>
+    <ul class="gallery">
+        <li>
+            <h3>튜울립</h3>
+            <p>튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명</p>
+        </li>
+        <li>
+            <h3>제비꽃</h3>
+            <p>제비꽃 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명</p>
+        </li>
+        <li>
+            <h3>해바라기</h3>
+            <p>해바라기 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명</p>
+        </li>
+        <li>
+            <h3>호박꽃</h3>
+            <p>호박꽃 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명튜울립 설명</p>
+        </li>
+    </ul>
 </body>
 </html>

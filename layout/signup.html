@@ -22,6 +22,7 @@
                 <h1 class="text-center fw-bold p-3">더조은 아카데미 UI 구현 게시판 레이아웃</h1>
             </div>
         </header>
+
         <nav class="navbar bg-dark navbar-expand-sm">
             <ul class="navbar-nav container justify-content-start">
                 <li class="mx-5 nav-item"><a class="nav-link text-white" href="index.html">메인페이지</a></li>
@@ -38,7 +39,25 @@
 
             </ul>
         </nav>
+    
         <main class="container">
+            <h1 class="text-center mt-5">회원가입</h1>
+            <form name="frm" class="mx-auto col-12 col-sm-8 col-md-6 col-lg-5 col-x1-4 col-xxl-3 card p-2 mt-5">
+            <input type="text" class="form-control my-3" id="id" placeholder="아이디" name="id">
+            <input type="password" class="form-control my-3" id="pwd" placeholder="비밀번호" name="pwd">
+            <input type="text" class="form-control my-3" id="name" placeholder="이름" name="name">
+            <input type="email" class="form-control my-3" id="email" placeholder="이메일" name="email">
+            <input type="text" class="form-control my-3" id="roadAddr" placeholder="" name="roadAddr" readonly>
+            <input type="text" class="form-control my-3" id="name" placeholder="상세주소" name="name">
+            <div class="input-group my-3">
+                <input type="text" class="form-control" placeholder="도로명검색">
+                <button class="btn btn-success" type="button" id="search">검색</button>
+            </div>
+            <ul class="list-group search-result-wrap">
+            </ul>
+
+            <button class="btn btn-primary">가입하기</button>
+        </form>
 
         </main>
         <footer class="bg-warning text-center p-4">
@@ -46,6 +65,51 @@
             <p>All rights reserved &copy; copyright.</p>
         </footer>
     </div>
+    <script>
+        $("#search").click(function() {
+            const keyword = $(this).prev().val();
+            if(!keyword) return;
+
+            const data = { 
+                keyword,
+                confmKey : 'devU01TX0FVVEgyMDI0MTAyOTEyMTYxNTExNTE5OTc=',
+                currentPage : 1,
+                countPerPage : 100,
+                resultType : 'json'
+             };
+            console.log(data);
+            
+
+            $.ajax({
+                url : "https://business.juso.go.kr/addrlink/addrLinkApiJsonp.do",
+                type : 'get',
+                data,
+                dataType : 'jsonp',
+                crossDomain : true,
+                success : function(data) {
+                    console.log(data);
+                    console.log(data.results.juso);
+
+                    let str = '';
+                    for(let i in data.results.juso) {
+                        str += `<li class="list-group-item"><a href="#" class="small">${data.results.juso[i].roadAddr}</a></li>`;
+                    }
+                    // \${data.results.juso[i].roadAddr} 이렇게 해야 jsp에서 인식함??
+                    $("ul.search-result-wrap").html(str);
+                },
+                error : function(xhr, msg) {
+                    console.log(msg);
+                }
+            })
+
+
+            $("ul.search-result-wrap").on("click","a",function() {
+                $("#roadAddr").val($(this).text().trim()); 
+                $(this).closest("ul").empty(); 
+            })
+
+        });
+    </script>
 </body>
 
 </html>

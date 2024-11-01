@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Image sprite로 goooooogle 만들기</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            margin: 0;
+        }
+        li {display: inline;}
+        #g {
+            display: inline-block; width: 28px; height: 40px;
+            background: url('http://www.google.com/images/nav_logo321.webp') -25px 0;    
+            background-size: 167px;
+            text-indent: -9999px;
+        }
+        .o {
+            display: inline-block; width: 20px; height: 40px;
+            background: url('http://www.google.com/images/nav_logo321.webp') -74px 0;    
+            background-size: 167px;
+            text-indent: -9999px;
+            /* 접근성 유지를 위해 text-indent를 사용해야함! */
+        }
+        #gle {
+            display: inline-block; width: 71px; height: 40px;
+            background: url('http://www.google.com/images/nav_logo321.webp') -96px 0;    
+            background-size: 167px;
+            text-indent: -9999px;            
+        }
+        .o:hover {background-position-x: -53px;}
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="g"><a href="#">0</a></li>
+        <li class="o"><a href="#">1</a></li>
+        <li class="o"><a href="#">2</a></li>
+        <li class="o"><a href="#">3</a></li>
+        <li class="o"><a href="#">4</a></li>
+        <li class="o"><a href="#">5</a></li>
+        <li id="gle"><a href="#">6</a></li>
+        
+    </ul>
+    <!-- UI의 경우 사이트의 샘플을 따라쳐보는 연습을 -->
+</body>
+</html>
